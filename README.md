@@ -1,8 +1,8 @@
 # **The Cup Game**
 # INTRODUCTION
 ---
->
->
+>The website is focused on the game of “shells”, in this case cups. The site is minimal and elegant, while allowing for a high degree of user interaction and customization. The Cup Game is simple and challenging providing the user with an all round positive experience.
+
 >python3 -m http.server
 
 ## CONTENT:
@@ -17,35 +17,83 @@
 ---
 ### **STRATEGY, SCOPE & STRUCTURE**
 
->
+**The Cup Game:**
+>Three identical cups are displayed side-by-side in a line; the ball is shown to be under one of the cups. The cups are then shuffled randomly over a period not exceeding 5 seconds. The player then clicks the cup they think the ball is under. If they guess right, they have won that game of cups and progress
 
-**Target User:** 
-> * 
-> * 
-> * 
-> * 
-> * 
+**Creator Goals:** 
+> * I want users to have an enjoyable experience playing the cup game. It should be easy to understand but challenging to beat.
+> * The user interaction should be slick and customizable to keep gamers coming back.
+> * This is an observation game not a memory game, so the difficulty will be changeable to give all users a fun experience.
 
-**User Stories:**
-> 1. 
->
-> 2. 
->
-> 3. 
->
-> 4. 
->
-> 5. 
+**Games Target User:** 
+> * People of all ages.
+> * Users interested in an observation-based game.
+> * People with any device type (mobile-first design).
 
+**New User:** 
+> * As a new user, I want to quickly understand the core game concepts, so I can enjoy playing sooner. 
+> * As a new user, I want a fun and interactive experience regardless of the device I am playing on.
+> * As a new user, I want to be able to change the difficulty of the game, so I can have an experience tailored for me.
+
+**Returning User:** 
+> * As a returning user, I want my score to be saved, so I can compete and beat my PB’s.
+> * As a returning user, I want to be able to make suggestions, to better improve the experience.
+> * As a returning user, I want to be able to customise the game in some way, to make it more appealing to my tastes.
+
+**User Pathway:** 
+> * The single paged website will cache/load cosmetic changes and game results to better engage users, personalising the experience by differentiating between new and returning users.
+>
+>![Image](docs/images/user-pathway.png)
+> 
+
+**Game Logic**
+>
+>* A basic breakdown of how the game of cups will function. This is to help with JavaScript Implementation of the game.
+>
+>![Image](docs/images/wireframes/game-logic.png)
 
 **Project Content** 
+> *Page Content :*
+> * Main Title
+> * Game Area
+> * Cup Colour Picker
+> * Social Media Links
+> * Contact Us Form
 >
+
+> *Game Content :*
+> * Start Game Button
+>* Difficulty Setting
+> * How To Play Button
 >
-> 
  
 ### **SKELETON & SURFACE**
 
->The remaining features and content kept in make up the **minimal viable product** at this time. The **MVP** *(minimal viable product)* consists of the [Home](https://github.com/5-ean/discover-new-zealand/blob/7f9d3df776b7bd97d4fdb0b2986230bd2601a7bd/assets/ux_assets/images/index.html-wireframe.pdf) page, [About](https://github.com/5-ean/discover-new-zealand/blob/7f9d3df776b7bd97d4fdb0b2986230bd2601a7bd/assets/ux_assets/images/about.html-wireframe.pdf), [Gallery](https://github.com/5-ean/discover-new-zealand/blob/7f9d3df776b7bd97d4fdb0b2986230bd2601a7bd/assets/ux_assets/images/gallery.html-wireframe.pdf) & [Get In Touch](https://github.com/5-ean/discover-new-zealand/blob/7f9d3df776b7bd97d4fdb0b2986230bd2601a7bd/assets/ux_assets/images/get-in-touch.html-wireframe.pdf) pages respectively.
+**Wireframes - New User**
+>*Moblie + Tablet*
+>
+>![Image](docs/images/wireframes/tablet-moblie-newuser.png)
+>
+> * As a new user the how to play button is already toggled on, this is to aid in usability. This site layout is consistent for all device sizes. The game is centralised to draw focus, and will be contrasted against the background. 
+
+>*Desktop*
+>
+>![Image](docs/images/wireframes/desktop-newuser.png)
+>
+> * Using the desktop space to focus on the game, leaving plenty of room to draw the eye.
+
+**Wireframes - Return User**
+>*Moblie + Tablet*
+>
+>![Image](docs/images/wireframes/tablet-moblie-retuser.png)
+>
+> * For returning users, the how to play button is toggled off. In its place is a previous score display, and their last selected cup colour is set to current colour. 
+
+> *Desktop*
+>
+>![Image](docs/images/wireframes/desktop-retuser.png)
+>
+> * Following the style and content formatting of the smaller devices, with the expection of the off center "previous score" display and colour picker.
 
 **Colour Scheme & Background**
 > The pictures used for the project were of natural landscapes with high ratios of green, blue, white, and brown colouring. Therefore, the stylistic choice was to use off white/grey colouring with opacity for the footer element. The Header was a solid grey colour to block content scrolling under as the user move the page up. The colour scheme along with subtle, thin borders around content elements gave a natural feel to the site overall.
@@ -66,14 +114,13 @@
 ---
 # FEATURES
 ---
->**Home Page / Navigation & Footer Elements -**
+>**Website Features -**
 > * Simple, easy to understand layout with user feedback on all links both internal and external.
 > * Bootstrap based navigation header, with collapse function in mobile view.
 > * Social links in footer element, along with copywrite information.
 > * Short introduction text to info user of the goal of the site.
 >
->![Image](docs/images/index.html.png)
-**About Page / Information Content -** 
+>**Game Features**
 > * A section containing  condensed information about New Zealand.  
 > * Links within the section that will take user to the source material.
 >
@@ -160,11 +207,11 @@
 > 2. Wildlife link and section - https://en.wikipedia.org/wiki/Biodiversity_of_New_Zealand
 > 3. Activites link and section - https://en.wikipedia.org/wiki/Tourism_in_New_Zealand
 > * [Google maps](https://www.google.co.uk/maps) - Used for pindrop link in bootstrap carousel caption area.
-> * **Text & Images** - Text generation by myself and [Wikipedia](https://www.wikipedia.org/). Background images and gallery elements for the Project were taken by myself.
-> * [Pixabay](https://pixabay.com/) - Images from site used for about pages card pictures.
-> 1. Card 1 Maori image - Picture uploaded by Barni1.
-> 2. Card 2 Kea image - Picture uploaded by Barni1.
-> 3. Card 3 Tekapo image - Picture uploaded by bougetonglobe.
+>
+>**Text & Images** - Text generation by myself and [Wikipedia](https://www.wikipedia.org/). Background images and gallery elements for the Project were taken by myself.
+> * [Pixabay](https://pixabay.com/) - Image of Beer Cup take us from site.
+Cup (cup.png) - Picture uploaded by mirandableijenberg.
+
 
 **Special Mentions**
 > * Code Institute/Slack community  - for the support and motivation
