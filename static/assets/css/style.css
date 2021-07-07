@@ -6,6 +6,15 @@
 
 
 /* --------------------Background colour, Fonts, padding & margins ------------------ */
+* {
+    border-radius: .25rem;
+    text-align: center;
+}
+
+input {
+    -webkit-appearance: none;
+    visibility: visible;
+}
 
 html {
     position: relative;
@@ -30,35 +39,123 @@ h1 {
     font-family: 'Roboto', sans-serif;
 }
 
+header {
+
+}
+/* --------------------Cup Game Area, Cups, Buttons ------------------ */
+
 #gamearea {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
     width: 100%;
-    height: 75%;
+    height: 100%;
 }
 
 .row#cups {
-    justify-content: space-around;
-    height: auto;
+    justify-content: space-evenly;
 }
+
 
 .cup {
     
     border-left: 25px solid transparent;
     border-right: 25px solid transparent;
-    border-bottom: 130px solid rgb(0, 168, 65);
+    border-bottom: 230px solid;
     min-width: 40px;
-    max-width: 220px;
+    max-width: 250px;
+    height: auto;
     min-height: 60px;
     max-height: 400px;
     padding: 5px 5px;
     margin-left: 15px;
     margin-right: 15px;
+    margin-bottom: 20px;
 
 }
 
-h1 {
-    font-family: 'Orbitron', sans-serif;
+.ball {
+    display: none;
+    background: black;
+    border-radius: 50%;
+    height:60px;
+    width: 60px;
 }
 
+/* --------------------Buttons ------------------ */
+
+button {
+    border: none;
+    padding: 5px;
+    font-size: 30px;
+    color: #333;
+    margin: 10px;
+    border-radius: .25rem;
+    box-shadow: -3px -3px 6px rgba(255, 255,255, 0.8),
+                2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    font-weight: bold;
+    transform: scale(0.97);
+    box-shadow: -3px -3px 8px rgba(255, 255,255, 0.8),
+                3px 3px 8px rgba(0, 0, 0, 0.08),
+            inset -2px -2px 8px rgba(255, 255,255, 0.8),
+            inset 2px 2px 8px rgba(0,0,0,0.1);
+}
+
+label {
+    border: none;
+    padding: 5px;
+    font-size: 30px;
+    color: #333;
+    margin: 10px;
+    border-radius: .25rem;
+    box-shadow: -3px -3px 6px rgba(255, 255,255, 0.8),
+                2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+label:hover {
+    font-weight: bold;
+    transform: scale(0.97);
+    box-shadow: -3px -3px 8px rgba(255, 255,255, 0.8),
+                3px 3px 8px rgba(0, 0, 0, 0.08),
+            inset -2px -2px 8px rgba(255, 255,255, 0.8),
+            inset 2px 2px 8px rgba(0,0,0,0.1);
+}
+
+input:focus+label {
+    box-shadow: none;
+    background-color: black;
+    color: white;
+}
+
+/* --------------------Colour Picker------------------ */
+
+#colourpicker {
+    padding: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px;
+    color: #333;
+    margin: 10px;
+}
+
+#colourpicker label {
+    animation: none;
+    float: left;
+    font-size: medium;
+    animation: none;
+    margin-top: 30px;
+    margin-left: 100px;
+    
+}
+
+#colourpicker label:hover {
+    animation: none;
+    box-shadow: none;
+    transform: none;
+}
 
 
 
@@ -76,4 +173,47 @@ footer {
     bottom: 0;
     height: 30px;
     width: 100%;
+}
+
+/* --------------------Social Links------------------ */
+
+li {
+    margin: 1%;
+}
+
+li a i {
+    padding: 10px;
+    font-size: 40px;
+    color: #333;
+    box-shadow: -3px -3px 6px rgba(255, 255,255, 0.8),
+                2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+li a i:hover {
+    color: #fe025b;
+    transform: scale(0.97);
+    box-shadow: -3px -3px 10px rgba(255, 255,255, 0.8),
+                3px 3px 8px rgba(0, 0, 0, 0.08),
+            inset -2px -2px 10px rgba(255, 255,255, 0.8),
+            inset 2px 2px 8px rgba(0,0,0,0.1);
+}
+
+footer button {
+    text-transform: uppercase;
+    margin: 1%;
+    border: none;
+    padding: 10px;
+    font-size: 30px;
+    color: #333;
+    box-shadow: -3px -3px 6px rgba(255, 255,255, 0.8),
+                2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+footer button:hover {
+    color: #fe025b;
+    transform: scale(0.97);
+    box-shadow: -3px -3px 8px rgba(255, 255,255, 0.8),
+                3px 3px 8px rgba(0, 0, 0, 0.08),
+            inset -2px -2px 8px rgba(255, 255,255, 0.8),
+            inset 2px 2px 8px rgba(0,0,0,0.1);
 }

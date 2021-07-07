@@ -18,43 +18,53 @@
     <div class="container-fluid" id="gamearea">
         <div class="gamearea">
             <div class="row" id="cups">
-                <div class="col cup"> </div>
-                <div class="col cup"></div>
-                <div class="col cup"></div>
+                <div class="col cup" id="cup1"> </div>
+                <div class="col cup" id="cup2"></div>
+                <div class="col cup" id="cup3"></div>
             </div>
                 <div class="ball"></div>
             <div class="gamecontrols">
-                <div class="row">
-                    <div class="col">
+                <div class="row justify-content-center">
+                    <div class="col contenttext">
                         <button>Start</button> 
                     </div>
                     </div>
-                    <div class="row">
-                        <div class="col">
+                    <div class="row justify-content-center">
+                        <div class="col col-2 contenttext">
                             <button>How To Play</button>
                         </div>
-                        <div class="col">
+                        <div class="col col-2 contenttext">
                             <button>Difficulty :</button>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col">
-                            <button>Easy</button>
+                    
+                        <div class="form row justify-content-center">
+                            <div class="col col-2">
+                                <input type="radio" id="easybtn" name="DifficultySetting" value="Easy">
+                                <label class="contenttext" for="easybtn">Easy</label>
+                            </div>
+                            <div class="col col-2">
+                            <input  type="radio"  id="mediumbtn" name="DifficultySetting" value="Medium">
+                            <label class="contenttext" for="mediumbtn">Medium</label>
+                            </div>
+                            <div class="col col-2">
+                            <input type="radio" id="hardbtn" name="DifficultySetting" value="Hard">
+                            <label class="contenttext" for="hardbtn">Hard</label>
+                            </div>
                         </div>
-                        <div class="col">
-                            <button>Medium</button>
-                        </div>
-                        <div class="col">
-                            <button>Hard</button>
-                        </div>
+
+                    <div class="row justify-content-around">
+                        <div class="col col-2" id="colourpicker">
+                        <label for="colourpicker" class="contenttext">Choose a colour</label>
+                        </div> 
                     </div>
                 </div>
             </div>
         </div>
-        <footer>
+<footer>
     <div class="row">
         <div class="col">
-            <button type="button" data-toggle="modal" data-target="#form-modal" class="heading-text uppercase">Contact Us</button>
+            <button type="button" data-toggle="modal" data-target="#form-modal" class="contenttext">Contact Us</button>
         </div>
         <div class="col">
             <div class="social-section">
@@ -68,30 +78,26 @@
                     </li>
                     <li class="list-inline-item">
                         <a target="_blank" href="https://twitter.com/?lang=en-gb">
-                            <input type="checkbox">
                             <i class="fab fa-twitter-square" aria-hidden="true"></i>
                             <span class="sr-only">Twitter</span>
                         </a>
                     </li>
                     <li class="list-inline-item">
                         <a target="_blank" href="https://www.youtube.com/?gl=GB&hl=en-GB">
-                            <input type="checkbox">
                             <i class="fab fa-youtube-square" aria-hidden="true"></i>
                             <span class="sr-only">Youtube</span>
                         </a>
                     </li>
                     <li class="list-inline-item">
                         <a target="_blank" href="https://www.instagram.com/">
-                            <input type="checkbox">
                             <i class="fab fa-instagram-square" aria-hidden="true"></i>
                             <span class="sr-only">Instagram</span>
                         </a>
                     </li>
                     <li class="list-inline-item">
-                        <a target="_blank" href="https://www.instagram.com/">
-                            <input type="checkbox">
+                        <a target="_blank" href="https://www.google.com/gmail/">
                             <i class="fab fa-google-plus-square" aria-hidden="true"></i>
-                            <span class="sr-only">Instagram</span>
+                            <span class="sr-only">Gmail</span>
                         </a>
                     </li>
                 </ul>
@@ -101,6 +107,7 @@
     </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="assets/js/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
+    <script type="text/javascript" src="static/assets/js/index.js"></script>
 </body>
 </html>
