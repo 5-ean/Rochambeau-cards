@@ -15,36 +15,53 @@
     <header>
         <h1>THE CUP GAME</h1>
     </header>
-    <div class="container" id="game">
-        <div class="row" id="cups">
-            <div class="col">
-                <div id="cup1">
-                    
+    <div class="container-fluid" id="gamearea">
+        <div class="gamearea">
+            <div class="row" id="cups">
+                <div class="col cup"> </div>
+                <div class="col cup"></div>
+                <div class="col cup"></div>
+            </div>
+                <div class="ball"></div>
+            <div class="gamecontrols">
+                <div class="row">
+                    <div class="col">
+                        <button>Start</button> 
+                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <button>How To Play</button>
+                        </div>
+                        <div class="col">
+                            <button>Difficulty :</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <button>Easy</button>
+                        </div>
+                        <div class="col">
+                            <button>Medium</button>
+                        </div>
+                        <div class="col">
+                            <button>Hard</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col">
-                <div id="cup2">
-                   
-                </div>
-            </div>
-            <div class="col">
-                <div id="cup3">
-                   
-            </div>
-            <div class="ball">
-                
-            </div>
         </div>
+        <footer>
+    <div class="row">
+        <div class="col">
+            <button type="button" data-toggle="modal" data-target="#form-modal" class="heading-text uppercase">Contact Us</button>
         </div>
-    
-    </div>
-    <footer>
         <div class="col">
             <div class="social-section">
-                <h4 class="heading-text uppercase d-none d-sm-block">Social</h4>
                 <ul class="list-inline social-links">
                     <li class="list-inline-item">
                         <a target="_blank" href="https://en-gb.facebook.com/">
+                            <input type="checkbox">
                             <i class="fab fa-facebook-square" aria-hidden="true"></i>
                             <span class="sr-only">Facebook</span>
                         </a>
@@ -70,9 +87,17 @@
                             <span class="sr-only">Instagram</span>
                         </a>
                     </li>
+                    <li class="list-inline-item">
+                        <a target="_blank" href="https://www.instagram.com/">
+                            <input type="checkbox">
+                            <i class="fab fa-google-plus-square" aria-hidden="true"></i>
+                            <span class="sr-only">Instagram</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
+    </div>
     </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
