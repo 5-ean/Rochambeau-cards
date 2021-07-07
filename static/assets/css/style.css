@@ -1,0 +1,59 @@
+/* Title font */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap');
+/* font-family: 'Orbitron', sans-serif; */
+/* Options font */
+ @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap');
+/* font-family: 'Roboto', sans-serif; */
+
+/* --------------------Background colour, Fonts, padding & margins ------------------ */
+body {
+    height: 100%;
+    width: 100%;
+    background-color: #e5e5e5;
+    text-align: center;
+}
+
+#game {
+   
+}
+
+#cups {
+    position: center;
+}
+
+#cup1, #cup2, #cup3 {
+    
+    
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 130px solid red;
+    margin: 20px;
+    width: 15vw;
+}
+
+h1 {
+    font-family: 'Orbitron', sans-serif;
+}
+
+
+
+
+
+
+
+
+
+
+img {
+    height: auto;
+    width: 20vw;
+}
+
+/* --------------------Footer------------------ */
+footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 30px;
+    width: 100%;
+}
