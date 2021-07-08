@@ -29,19 +29,48 @@ body {
     text-align: center;
 }
 
-h1 {
+/* --------------------Header, How To Play Instructions------------------ */
+
+
+
+
+
+#instructions {
+    width: auto;
+    position: absolute;
+    z-index: 1;
+    top: 10;
+    width: 100%;
+    font-size: 18px;
+    background-color: rgba(211, 210, 210, 0.5);
+    overflow: hidden;
+    height: auto;
+
+        -webkit-transition: height 0.7s;
+        -moz-transition: height 0.7s;
+        transition: height 0.7s;
+
+}
+
+#instructions.close {
+    height: 0px;
+
+        -webkit-transition: height 0.7s;
+        -moz-transition: height 0.7s;
+        transition: height 0.7s;
+}
+
+h1, .contenttext {
     font-family: 'Orbitron', sans-serif;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
-.contenttext {
+p {
     font-family: 'Roboto', sans-serif;
+    font-weight: bold;
 }
 
-header {
-
-}
 /* --------------------Cup Game Area, Cups, Buttons ------------------ */
 
 #gamearea {
