@@ -41,7 +41,7 @@ body {
     z-index: 1;
     top: 10;
     width: 100%;
-    font-size: 18px;
+    font-size: clamp( 18px, 1.5rem, 40px);
     background-color: rgba(211, 210, 210, 0.5);
     overflow: hidden;
     height: auto;
@@ -60,7 +60,7 @@ body {
         transition: height 0.7s;
 }
 
-h1, .contenttext {
+h1, h2, .contenttext {
     font-family: 'Orbitron', sans-serif;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -116,7 +116,7 @@ p {
 button {
     border: none;
     padding: 5px;
-    font-size: 30px;
+    font-size: clamp( 18px, 1.5rem, 40px);
     color: #333;
     margin: 10px;
     border-radius: .25rem;
@@ -136,7 +136,7 @@ button:hover {
 label {
     border: none;
     padding: 5px;
-    font-size: 30px;
+    font-size: clamp( 18px, 1.5rem, 40px);
     color: #333;
     margin: 10px;
     border-radius: .25rem;
@@ -219,7 +219,7 @@ li a i {
 }
 
 li a i:hover {
-    color: #fe025b;
+    
     transform: scale(0.97);
     box-shadow: -3px -3px 10px rgba(255, 255,255, 0.8),
                 3px 3px 8px rgba(0, 0, 0, 0.08),
