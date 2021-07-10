@@ -36,27 +36,24 @@
                         <button id="startbtn">Start</button> 
                     </div>
                     </div>
-                    <div class="row justify-content-center">
-                        <div class="col col-2 contenttext">
-                            <button id="intructionbtn">How To Play</button>
-                        </div>
-                        <div class="col col-2 contenttext">
-                            <button>Difficulty:</button>
+                    <div class="row">
+                        <div class="col contenttext">
+                            <button id="intructionbtn">Instructions</button>
                         </div>
                     </div>
                     
-                        <div class="form row justify-content-center">
-                            <div class="col col-2">
+                        <div class="row">
+                            <div class="col">
                                 <input type="radio" id="easybtn" name="DifficultySetting" value="Easy">
-                                <label class="contenttext" for="easybtn">Easy</label>
+                                <label class="contenttext right" for="easybtn">Easy</label>
                             </div>
-                            <div class="col col-2">
+                            <div class="col">
                             <input  type="radio"  id="mediumbtn" name="DifficultySetting" value="Medium">
                             <label class="contenttext" for="mediumbtn">Medium</label>
                             </div>
-                            <div class="col col-2">
+                            <div class="col">
                             <input type="radio" id="hardbtn" name="DifficultySetting" value="Hard">
-                            <label class="contenttext" for="hardbtn">Hard</label>
+                            <label class="contenttext left" for="hardbtn">Hard</label>
                             </div>
                         </div>
 
@@ -71,38 +68,82 @@
 <footer>
     <div class="row">
         <div class="col">
-            <button type="button" data-toggle="modal" data-target="#form-modal" class="contenttext">Contact Us</button>
+            <button type="button" data-toggle="modal" data-target="#form-modal" class="contenttext" id="contact">Contact Us</button>
+        </div>
+        <div class="modal fade" id="form-modal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h3 class="modal-title" id="exampleModalLabel">Contact Us</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form class="content-text" onsubmit="alert('Thanks for the feedback');return false">
+                        <div class="form-row">
+                            <div class="col-6">
+                                <label for="fname" class="bold content-text">First Name</label>
+                            <input type="text" class="form-control bold" placeholder="Joe" id="fname" required>
+                            </div>
+                            <div class="col-6">
+                                <label for="lname" class="bold content-text">Last Name</label>
+                            <input type="text" class="form-control bold" placeholder="Smith" id="lname" required>
+                            </div>
+                        </div>
+                         <div class="form-row">
+                            <div class="col">
+                                <label for="email" class="bold content-text">Email Address</label>
+                                <input type="email" class="form-control bold" id="email" placeholder="JoeSmith@emailprovider.com" aria-describedby="emailtextblock" required>
+                                <small id="emailtextblock" class="form-text">
+                                    We do not give out your email address to third parties. Your personal data is safe with us!  
+                                </small>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col">
+                                <label for="textarea" class="contenttext">Your Message</label>
+                                <textarea rows="5" class="form-control content-text bold" id="textarea" placeholder="Please put your question/message here..." required></textarea>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="Submit">
+                        </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
         </div>
         <div class="col">
             <div class="social-section">
                 <ul class="list-inline social-links">
                     <li class="list-inline-item">
                         <a target="_blank" href="https://en-gb.facebook.com/">
-                            <i class="fab fa-facebook-square" aria-hidden="true"></i>
+                            <i class="fab fa-facebook-square" id="fb" aria-hidden="true"></i>
                             <span class="sr-only">Facebook</span>
                         </a>
                     </li>
                     <li class="list-inline-item">
                         <a target="_blank" href="https://twitter.com/?lang=en-gb">
-                            <i class="fab fa-twitter-square" aria-hidden="true"></i>
+                            <i class="fab fa-twitter-square" id="tw" aria-hidden="true"></i>
                             <span class="sr-only">Twitter</span>
                         </a>
                     </li>
                     <li class="list-inline-item">
                         <a target="_blank" href="https://www.youtube.com/?gl=GB&hl=en-GB">
-                            <i class="fab fa-youtube-square" aria-hidden="true"></i>
+                            <i class="fab fa-youtube-square" id="yt" aria-hidden="true"></i>
                             <span class="sr-only">Youtube</span>
                         </a>
                     </li>
                     <li class="list-inline-item">
                         <a target="_blank" href="https://www.instagram.com/">
-                            <i class="fab fa-instagram-square" aria-hidden="true"></i>
+                            <i class="fab fa-instagram-square" id="insta" aria-hidden="true"></i>
                             <span class="sr-only">Instagram</span>
                         </a>
                     </li>
                     <li class="list-inline-item">
                         <a target="_blank" href="https://www.google.com/gmail/">
-                            <i class="fab fa-google-plus-square" aria-hidden="true"></i>
+                            <i class="fab fa-google-plus-square" id="gm" aria-hidden="true"></i>
                             <span class="sr-only">Gmail</span>
                         </a>
                     </li>
