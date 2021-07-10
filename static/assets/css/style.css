@@ -31,39 +31,37 @@ body {
 
 /* --------------------Header, How To Play Instructions------------------ */
 
-
-
-
-
 #instructions {
+    max-height: 400px;
     width: auto;
     position: absolute;
     z-index: 1;
-    top: 10;
     width: 100%;
-    font-size: clamp( 18px, 1.5rem, 40px);
+    font-size: clamp( 6px, 1rem, 40px);
     background-color: rgba(211, 210, 210, 0.5);
     overflow: hidden;
-    height: auto;
 
-        -webkit-transition: height 0.7s;
-        -moz-transition: height 0.7s;
-        transition: height 0.7s;
-
+        -webkit-transition: max-height 1s ease-in;
+        -moz-transition: max-height 1s ease-in;
+        -o-transition: max-height 1s ease-in;
+        transition: max-height 1s ease-in;
 }
 
 #instructions.close {
-    height: 0px;
+    position: absolute;
+    max-height: 0;
+    overflow: hidden;
 
-        -webkit-transition: height 0.7s;
-        -moz-transition: height 0.7s;
-        transition: height 0.7s;
+        -webkit-transition: max-height 1s ease-out;
+        -moz-transition: max-height 1s ease-out;
+        -o-transition: max-height 1s ease-out;
+        transition: max-height 1s ease-out;
 }
 
-h1, h2, .contenttext {
+h1, h2, h3, .contenttext {
+    text-align: center;
     font-family: 'Orbitron', sans-serif;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    
 }
 
 p {
@@ -93,8 +91,7 @@ p {
     border-bottom: 230px solid;
     min-width: 40px;
     max-width: 250px;
-    height: auto;
-    min-height: 60px;
+    min-height: 30px;
     max-height: 400px;
     padding: 5px 5px;
     margin-left: 15px;
@@ -115,10 +112,9 @@ p {
 
 button {
     border: none;
-    padding: 5px;
-    font-size: clamp( 18px, 1.5rem, 40px);
+    font-size: clamp( 14px, 1.2rem, 20px);
     color: #333;
-    margin: 10px;
+    margin: 5px;
     border-radius: .25rem;
     box-shadow: -3px -3px 6px rgba(255, 255,255, 0.8),
                 2px 2px 4px rgba(0, 0, 0, 0.2);
@@ -133,18 +129,24 @@ button:hover {
             inset 2px 2px 8px rgba(0,0,0,0.1);
 }
 
-label {
-    border: none;
-    padding: 5px;
-    font-size: clamp( 18px, 1.5rem, 40px);
+#gamearea label {
+
+    font-size: clamp( 14px, 1.2rem, 20px);
     color: #333;
-    margin: 10px;
+    margin: 2px;
     border-radius: .25rem;
     box-shadow: -3px -3px 6px rgba(255, 255,255, 0.8),
                 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
+#gamearea label.left {
+    float: left;
+}
 
-label:hover {
+#gamearea label.right{
+    float: right;
+}
+
+#gamearea label:hover {
     font-weight: bold;
     transform: scale(0.97);
     box-shadow: -3px -3px 8px rgba(255, 255,255, 0.8),
@@ -153,7 +155,7 @@ label:hover {
             inset 2px 2px 8px rgba(0,0,0,0.1);
 }
 
-input:focus+label {
+#gamearea input:focus+label {
     box-shadow: none;
     background-color: black;
     color: white;
@@ -207,42 +209,69 @@ footer {
 /* --------------------Social Links------------------ */
 
 li {
-    margin: 1%;
+    margin: 2px;
 }
 
 li a i {
-    padding: 10px;
-    font-size: 40px;
-    color: #333;
-    box-shadow: -3px -3px 6px rgba(255, 255,255, 0.8),
-                2px 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-li a i:hover {
-    
-    transform: scale(0.97);
-    box-shadow: -3px -3px 10px rgba(255, 255,255, 0.8),
-                3px 3px 8px rgba(0, 0, 0, 0.08),
-            inset -2px -2px 10px rgba(255, 255,255, 0.8),
-            inset 2px 2px 8px rgba(0,0,0,0.1);
-}
-
-footer button {
-    text-transform: uppercase;
-    margin: 1%;
-    border: none;
-    padding: 10px;
+    padding: 5px;
     font-size: 30px;
     color: #333;
     box-shadow: -3px -3px 6px rgba(255, 255,255, 0.8),
                 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+li a i:hover {
+    background-color: #e5e5e5;
+    transform: scale(1.2);
+    box-shadow: -3px -3px 8px rgba(255, 255,255, 0.8),
+                3px 3px 8px rgba(0, 0, 0, 0.08),
+                inset -2px -2px 8px rgba(255, 255,255, 0.8),
+                inset 2px 2px 8px rgba(0,0,0,0.1);
+    
+}
+
+/* --------------------Contact Us------------------ */
+
+footer button {
+    text-transform: uppercase;
+    font-size: clamp;
+    border: none;
+    padding: 5px;
+    font-size: 20px;
+    color: #333;
+    box-shadow: -3px -3px 6px rgba(255, 255,255, 0.8),
+                2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
 footer button:hover {
-    color: #fe025b;
-    transform: scale(0.97);
+    background-color: #e5e5e5;
+    transform: scale(1.2);
     box-shadow: -3px -3px 8px rgba(255, 255,255, 0.8),
                 3px 3px 8px rgba(0, 0, 0, 0.08),
             inset -2px -2px 8px rgba(255, 255,255, 0.8),
             inset 2px 2px 8px rgba(0,0,0,0.1);
 }
+
+.form-modal label {
+    border: none;
+    font-size: clamp( 14px, 1.2rem, 20px);
+    color: #333;
+    margin: 2px;
+    border-radius: .25rem;
+}
+
+.form-modal label:hover {
+    box-shadow:none;
+    transform: scale(none);
+
+}
+
+/* -------------------Media Queries------------------ */
+@media(max-width: 576px) {
+    p {
+        font-size: 0.7rem;
+    }
+    .cup {
+        border-bottom: 100px solid;
+    }
+  }
