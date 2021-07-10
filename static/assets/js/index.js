@@ -1,4 +1,5 @@
 // Colour Customizable DOM Elements
+let modal = document.getElementById("modalTitle");
 let cup1 = document.getElementById("cup1");
 let cup2 = document.getElementById("cup2");
 let cup3 = document.getElementById("cup3");
@@ -8,7 +9,17 @@ let yt = document.getElementById("yt");
 let insta = document.getElementById("insta");
 let gm = document.getElementById("gm");
 let contact = document.getElementById("contact");
+//
+var instructions = document.getElementById("instructions");
+var intructionbtn = document.getElementById("intructionbtn");
+/*!
+ * iro.js v5.5.2
+ * 2016-2021 James Daniel
+ * Licensed under MPL 2.0
+ * github.com/jaames/iro.js
+ */
 // ColourPicker Wheel & Slice Bar
+
 const colorpicker = new iro.ColorPicker("#colourpicker", {
     width:90,
 });
@@ -19,9 +30,17 @@ let storedHex = (localStorage.getItem("colour", JSON.stringify(colorpicker.color
 
 // Memory() Takes LocalStorage hexstring and applies to Customizable Elements
 window.onload = function memory() {
-if(inputColor === "#ffffff") {
+if(storedHex === null) {
 
-    inputColor = storedHex;
+   instructions.className = "open";
+    
+   colorpicker.on();
+    
+
+} if (inputColor !== storedHex) {
+
+    instructions.className = "close";
+    inputColor = storedHex
 
     cup1.style.borderBottomColor = inputColor;
     cup2.style.borderBottomColor = inputColor;
@@ -32,15 +51,13 @@ if(inputColor === "#ffffff") {
     insta.style.color = inputColor;
     gm.style.color = inputColor;
     contact.style.color = inputColor;
-    
-} else {
-    colorpicker.on();
+    modal.backgroundColor = inputColor;
 };
 
 // User Interaction With ColorWheel & Slider
 colorpicker.on('color:change', function(color) {
     
-
+   
     cup1.style.borderBottomColor = color.hexString;
     cup2.style.borderBottomColor = color.hexString;
     cup3.style.borderBottomColor = color.hexString;
@@ -50,6 +67,7 @@ colorpicker.on('color:change', function(color) {
     insta.style.color = color.hexString;
     gm.style.color = color.hexString;
     contact.style.color = color.hexString;
+    modal.style.backgroundColor = color.hexString;
 
     localStorage.setItem("colour", color.hexString);
    
@@ -58,19 +76,16 @@ colorpicker.on('color:change', function(color) {
 
 
 // How To Play Instructions Displayer
-var instructions = document.getElementById("instructions");
-var intructionbtn = document.getElementById("intructionbtn");
-
 
 intructionbtn.onclick = function(){
 
-    if(instructions.className == "close") {
+    if(instructions.className == "open") {
         //Opens The Instructions
-        instructions.className = ""
-        intructionbtn.innerHTML = "I Got It!";
-    } else {
-        //Closes The Tnstructions
         instructions.className = "close";
         intructionbtn.innerHTML = "Instructions";
+    } else {
+        //Closes The Tnstructions
+        instructions.className = "open";
+        intructionbtn.innerHTML = "I Got It!";
     }
 }};

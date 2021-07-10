@@ -26,12 +26,12 @@ body {
     height: 100%;
     width: 100%;
     background-color: #e5e5e5;
-    text-align: center;
 }
 
 /* --------------------Header, How To Play Instructions------------------ */
 
 #instructions {
+    visibility: hidden;
     max-height: 400px;
     width: auto;
     position: absolute;
@@ -41,22 +41,37 @@ body {
     background-color: rgba(211, 210, 210, 0.5);
     overflow: hidden;
 
-        -webkit-transition: max-height 1s ease-in;
-        -moz-transition: max-height 1s ease-in;
-        -o-transition: max-height 1s ease-in;
-        transition: max-height 1s ease-in;
+    -webkit-transition: max-height 1s ease;
+    -moz-transition: max-height 1s ease;
+    -o-transition: max-height 1s ease;
+    transition: max-height 1s ease;
 }
+
+#instructions.open {
+    visibility: visible;
+    overflow: hidden;
+    
+}
+
+
 
 #instructions.close {
+    visibility: hidden;
+    width: auto;
     position: absolute;
+    margin-top: auto;
+    margin-left: auto;
+    width: 100%;
+    font-size: clamp( 6px, 1rem, 40px);
     max-height: 0;
-    overflow: hidden;
+    background-color: rgba(211, 210, 210, 0.5);
 
-        -webkit-transition: max-height 1s ease-out;
-        -moz-transition: max-height 1s ease-out;
-        -o-transition: max-height 1s ease-out;
-        transition: max-height 1s ease-out;
+        -webkit-transition: max-height 1s ease;
+        -moz-transition: max-height 1s ease;
+        -o-transition: max-height 1s ease;
+        transition: max-height 1s ease;
 }
+
 
 h1, h2, h3, .contenttext {
     text-align: center;
@@ -114,6 +129,7 @@ button {
     border: none;
     font-size: clamp( 14px, 1.2rem, 20px);
     color: #333;
+    padding: 3px;
     margin: 5px;
     border-radius: .25rem;
     box-shadow: -3px -3px 6px rgba(255, 255,255, 0.8),
@@ -133,7 +149,8 @@ button:hover {
 
     font-size: clamp( 14px, 1.2rem, 20px);
     color: #333;
-    margin: 2px;
+    padding: 3px;
+    margin: 5px;
     border-radius: .25rem;
     box-shadow: -3px -3px 6px rgba(255, 255,255, 0.8),
                 2px 2px 4px rgba(0, 0, 0, 0.2);

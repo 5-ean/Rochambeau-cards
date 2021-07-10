@@ -15,7 +15,7 @@
     <header>
         <h1>THE CUP GAME</h1>
             <div id="instructions">
-                <h2>How To Play</h2>
+                <h2>Instructions</h2>
                 <p>The goal is to find the ball hidden under one of the cups.</p>
                 <p>The cups shuffle and move, so keep a sharp eye on them!</p>
                 <p>There are three difficulty settings, each steps the speed up. </p>
@@ -73,27 +73,27 @@
         <div class="modal fade" id="form-modal" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                  <div class="modal-header">
-                    <h3 class="modal-title" id="exampleModalLabel">Contact Us</h3>
+                  <div class="modal-header" id="modalTitle">
+                    <h3 class="modal-title">Contact Us</h3>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
                   <div class="modal-body">
-                    <form class="content-text" onsubmit="alert('Thanks for the feedback');return false">
+                    <form class="contenttext" onsubmit="alert('Thanks for the feedback');return false">
                         <div class="form-row">
                             <div class="col-6">
-                                <label for="fname" class="bold content-text">First Name</label>
+                                <label for="fname" class="contenttext">First Name</label>
                             <input type="text" class="form-control bold" placeholder="Joe" id="fname" required>
                             </div>
                             <div class="col-6">
-                                <label for="lname" class="bold content-text">Last Name</label>
+                                <label for="lname" class="contenttext">Last Name</label>
                             <input type="text" class="form-control bold" placeholder="Smith" id="lname" required>
                             </div>
                         </div>
                          <div class="form-row">
                             <div class="col">
-                                <label for="email" class="bold content-text">Email Address</label>
+                                <label for="email" class="contenttext">Email Address</label>
                                 <input type="email" class="form-control bold" id="email" placeholder="JoeSmith@emailprovider.com" aria-describedby="emailtextblock" required>
                                 <small id="emailtextblock" class="form-text">
                                     We do not give out your email address to third parties. Your personal data is safe with us!  
@@ -103,11 +103,11 @@
                         <div class="form-row">
                             <div class="col">
                                 <label for="textarea" class="contenttext">Your Message</label>
-                                <textarea rows="5" class="form-control content-text bold" id="textarea" placeholder="Please put your question/message here..." required></textarea>
+                                <textarea rows="5" class="form-control" id="textarea" placeholder="Please put your question/message here..." required></textarea>
                             </div>
                         </div>
                         <div class="text-center">
-                            <button type="submit" class="Submit">
+                            <button type="submit" data-toggle="modal" class="Submit">Submit</button>
                         </div>
                     </form>
                   </div>
