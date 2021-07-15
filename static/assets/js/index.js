@@ -28,18 +28,21 @@ let inputColor = colorpicker.color.hexString;
 // Retrieves Key: “colour” and  value : “locally Stored Hexstring”
 let storedHex = (localStorage.getItem("colour", JSON.stringify(colorpicker.color.hexString)));
 
+document.querySelector("#intructionbtn").addEventListener('click', () => 
+{ document.querySelector('.collapsible').classList.toggle('collapsed');
+});
+
+
 // Memory() Takes LocalStorage hexstring and applies to Customizable Elements
 window.onload = function memory() {
 if(storedHex === null) {
 
-   instructions.className = "open";
-    
-   colorpicker.on();
+    colorpicker.on();
     
 
 } if (inputColor !== storedHex) {
 
-    instructions.className = "close";
+    
     inputColor = storedHex
 
     cup1.style.borderBottomColor = inputColor;
@@ -51,7 +54,7 @@ if(storedHex === null) {
     insta.style.color = inputColor;
     gm.style.color = inputColor;
     contact.style.color = inputColor;
-    modal.backgroundColor = inputColor;
+    modal.style.backgroundColor = inputColor;
 };
 
 // User Interaction With ColorWheel & Slider
@@ -70,22 +73,4 @@ colorpicker.on('color:change', function(color) {
     modal.style.backgroundColor = color.hexString;
 
     localStorage.setItem("colour", color.hexString);
-   
-});
-
-
-
-// How To Play Instructions Displayer
-
-intructionbtn.onclick = function(){
-
-    if(instructions.className == "open") {
-        //Opens The Instructions
-        instructions.className = "close";
-        intructionbtn.innerHTML = "Instructions";
-    } else {
-        //Closes The Tnstructions
-        instructions.className = "open";
-        intructionbtn.innerHTML = "I Got It!";
-    }
-}};
+})};

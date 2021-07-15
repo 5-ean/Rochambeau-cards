@@ -14,13 +14,17 @@
 <body>
     <header>
         <h1>THE CUP GAME</h1>
-            <div id="instructions">
+        <div class="row">
+            <div class="col contenttext">
+                <button id="intructionbtn">Instructions</button>
+            <div class="collapsible">
                 <h2>Instructions</h2>
                 <p>The goal is to find the ball hidden under one of the cups.</p>
                 <p>The cups shuffle and move, so keep a sharp eye on them!</p>
                 <p>There are three difficulty settings, each steps the speed up. </p>
                 <p>Hit start and enjoy!</p>
             </div> 
+            </div>
     </header>
     <div class="container-fluid" id="gamearea">
         <div class="gamearea">
@@ -36,11 +40,7 @@
                         <button id="startbtn">Start</button> 
                     </div>
                     </div>
-                    <div class="row">
-                        <div class="col contenttext">
-                            <button id="intructionbtn">Instructions</button>
-                        </div>
-                    </div>
+            </div>
                     
                         <div class="row">
                             <div class="col">
@@ -48,7 +48,7 @@
                                 <label class="contenttext right" for="easybtn">Easy</label>
                             </div>
                             <div class="col">
-                            <input  type="radio"  id="mediumbtn" name="DifficultySetting" value="Medium">
+                            <input  type="radio" id="mediumbtn" name="DifficultySetting" value="Medium">
                             <label class="contenttext" for="mediumbtn">Medium</label>
                             </div>
                             <div class="col">
@@ -155,6 +155,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
-    <script type="text/javascript" src="static/assets/js/index.js"></script>
+    <script async type="text/javascript" src="static/assets/js/index.js"></script>
 </body>
 </html>
