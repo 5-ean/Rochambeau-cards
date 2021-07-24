@@ -28,6 +28,8 @@ let inputColor = colorpicker.color.hexString;
 // Retrieves Key: “colour” and  value : “locally Stored Hexstring”
 let storedHex = (localStorage.getItem("colour", JSON.stringify(colorpicker.color.hexString)));
 
+
+
 document.querySelector("#intructionbtn").addEventListener('click', () => 
 { document.querySelector('.collapsible').classList.toggle('collapsed');
 });
@@ -74,3 +76,7 @@ colorpicker.on('color:change', function(color) {
 
     localStorage.setItem("colour", color.hexString);
 })};
+
+var cupOne = document.querySelector("#cup1");
+
+var OnePos = cupOne.getBoundingClientRect();

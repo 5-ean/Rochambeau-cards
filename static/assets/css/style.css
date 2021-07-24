@@ -17,7 +17,7 @@ input {
 }
 
 html {
-    position: relative;
+    position: absolute;
     min-height: 100%;
     width: 100%;
 }
@@ -28,6 +28,10 @@ body {
     background-color: #e5e5e5;
 }
 
+h1 {
+    padding: 10px;
+    font-weight: 700;
+}
 h1, h2, h3, .contenttext {
     text-align: center;
     font-family: 'Orbitron', sans-serif;
@@ -55,6 +59,7 @@ p {
 /* --------------------Cup Game Area, Cups, Buttons ------------------ */
 
 #gamearea {
+    margin-top: 30px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 30px;
@@ -62,16 +67,16 @@ p {
     height: 100%;
 }
 
-.row#cups {
+.cups {
     justify-content: space-evenly;
 }
 
-
 .cup {
     
+    justify-self: center;
     border-left: 25px solid transparent;
     border-right: 25px solid transparent;
-    border-bottom: 230px solid;
+    border-bottom: 220px solid;
     min-width: 40px;
     max-width: 250px;
     min-height: 30px;
@@ -83,8 +88,8 @@ p {
 
 }
 
+
 .ball {
-    display: none;
     align-self: center;
     background: black;
     border-radius: 50%;
@@ -98,8 +103,8 @@ button {
     border: none;
     font-size: clamp( 14px, 1.2rem, 20px);
     color: #333;
-    padding: 3px;
-    margin: 5px;
+    padding: 5px;
+    margin: 7px;
     border-radius: .25rem;
     box-shadow: -3px -3px 6px rgba(255, 255,255, 0.8),
                 2px 2px 4px rgba(0, 0, 0, 0.2);
