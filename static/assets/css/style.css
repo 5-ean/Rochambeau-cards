@@ -90,11 +90,16 @@ p {
 
 
 .ball {
+    display: none;
+    position: absolute;
+    left: 48.5%;
+    top: 320px;
     align-self: center;
     background: black;
     border-radius: 50%;
     height:60px;
     width: 60px;
+    z-index: 2;
 }
 
 /* --------------------Buttons ------------------ */
@@ -227,7 +232,7 @@ li a i:hover {
     border: 2px solid #e5e5e5;
 }
 
-footer button {
+footer button.submit {
     text-transform: uppercase;
     font-size: clamp;
     border: none;
@@ -264,13 +269,31 @@ footer button:hover {
 .modal-body {
     background-color: #e5e5e5;
 }
+#form-modal .modal-body button {
+
+    margin-top: 10px;
+    margin-bottom: 2px;
+
+}
 
 /* -------------------Media Queries------------------ */
+@media(max-width: 372px) {
+    h1 {
+        padding: 10px 1px;
+    }
+    
+}
+
 @media(max-width: 576px) {
     p {
         font-size: 0.7rem;
     }
     .cup {
         border-bottom: 100px solid;
+    }
+    .ball {
+        position: absolute;
+        left: 45%;
+        top: 205px;
     }
   }

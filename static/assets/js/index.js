@@ -29,7 +29,7 @@ let inputColor = colorpicker.color.hexString;
 let storedHex = (localStorage.getItem("colour", JSON.stringify(colorpicker.color.hexString)));
 
 
-
+// Instruction Button display toggle
 document.querySelector("#intructionbtn").addEventListener('click', () => 
 { document.querySelector('.collapsible').classList.toggle('collapsed');
 });
@@ -78,5 +78,9 @@ colorpicker.on('color:change', function(color) {
 })};
 
 var cupOne = document.querySelector("#cup1");
+var cupTwo = document.querySelector("#cup2");
 
+
+var TwoPos = cupTwo.getBoundingClientRect();
 var OnePos = cupOne.getBoundingClientRect();
+

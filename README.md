@@ -64,7 +64,7 @@
 > *Game Content :*
 > * Start Game Button
 >* Difficulty Setting
-> * How To Play Button
+> * Intructions Button
 >
  
 ### **SKELETON & SURFACE**
@@ -95,21 +95,25 @@
 >
 > * Following the style and content formatting of the smaller devices, with the expection of the off center "previous score" display and colour picker.
 
-**Colour Scheme & Background**
-> The pictures used for the project were of natural landscapes with high ratios of green, blue, white, and brown colouring. Therefore, the stylistic choice was to use off white/grey colouring with opacity for the footer element. The Header was a solid grey colour to block content scrolling under as the user move the page up. The colour scheme along with subtle, thin borders around content elements gave a natural feel to the site overall.
+**Colour Scheme**
+> Static site colours:
 >
->   *Navigation background colour*
-> * Hex  (#cfcccc)
+>The site has two standard colours, #e5e5e5 for the body background and #333 for the font, labels, and buttons text colour. Both are intentional dull to complement the third colour which is customisable by the user. 
 >
->  *Footer background colours:*
-> * rgba(185, 185, 185, 0.5)
->  
->  *Content background colour:*
-> * rgba(255, 255, 255, 0.5 - 0.7)
+>Customisable colour scheme: 
+> 
+>With the use of the **colour picker**, the user can change the colour of the cup elements displayed on the site, as well as the colour of the footer’s *social links*, 'contact us' *button* and 'contact us' form *header background*. 
 
 **Buttons & Links**
 
->To aid usability links and buttons followed the same style. Notably changing from black to white when hovered over. This is a sharp contrast and a nod to New Zealand Sports and Culture as white and black have long been the colour scheme for the country in many regards.
+>**Instruction and start button :** 
+>Both have cursor: pointer when hovered over, letting the user know an event will happen when clicked. For the Instruction button a drop down div will display game information. With a click on the start button the game will initialise. 
+
+>**Difficulty settings buttons :**
+>The easy, medium, and hard buttons are toggle elements that share the same name. Only one button can be selected at a time. The selected button becomes black to make it easy for the user to know what difficulty they are playing on.
+
+>**Footer Buttons :**
+>All footer buttons have cursor: pointer when hovered over, letting the user know an event will happen when clicked. The Contact us button will launch a modal for submitting feedback about the game. The social links open pages to the respective sites.
 
 ---
 # FEATURES
@@ -207,10 +211,7 @@
 > 2. Wildlife link and section - https://en.wikipedia.org/wiki/Biodiversity_of_New_Zealand
 > 3. Activites link and section - https://en.wikipedia.org/wiki/Tourism_in_New_Zealand
 > * [Google maps](https://www.google.co.uk/maps) - Used for pindrop link in bootstrap carousel caption area.
->
->**Text & Images** - Text generation by myself and [Wikipedia](https://www.wikipedia.org/). Background images and gallery elements for the Project were taken by myself.
-> * [Pixabay](https://pixabay.com/) - Image of Beer Cup take us from site.
-Cup (cup.png) - Picture uploaded by mirandableijenberg.
+
 
 
 **Special Mentions**

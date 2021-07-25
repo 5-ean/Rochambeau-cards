@@ -7,9 +7,16 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/c5b2ceceb9.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="static/assets/css/style.css" type="text/css" />
-
-    
     <title>THE CUP GAME</title>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function(){
+           emailjs.init("user_qFuo9BsGq3VCFM0bJvRSm");
+           emailjs.send("service_emi2dad", "template_o0hkano",{name: "Sean", notes: "The project that I want is..."});
+        })();
+     </script>
 </head>
 <body>
     <header>
@@ -79,11 +86,11 @@
                     </button>
                   </div>
                   <div class="modal-body">
-                    <form class="contenttext" onsubmit="alert('Thanks for the feedback');return false">
+                    <form onsubmit="return sendMail(this);" class="contenttext">
                         <div class="form-row">
                             <div class="col-6">
                                 <label for="fname" class="contenttext">First Name</label>
-                            <input type="text" class="form-control bold" placeholder="Joe" id="fname" required>
+                            <input type="text" name="name" class="form-control bold" placeholder="Joe" id="fname" required>
                             </div>
                             <div class="col-6">
                                 <label for="lname" class="contenttext">Last Name</label>
@@ -93,7 +100,7 @@
                          <div class="form-row">
                             <div class="col">
                                 <label for="email" class="contenttext">Email Address</label>
-                                <input type="email" class="form-control bold" id="email" placeholder="JoeSmith@emailprovider.com" aria-describedby="emailtextblock" required>
+                                <input type="email" name="email" class="form-control bold" id="email" placeholder="JoeSmith@emailprovider.com" aria-describedby="emailtextblock" required>
                                 <small id="emailtextblock" class="form-text">
                                     We do not give out your email address to third parties. Your personal data is safe with us!  
                                 </small>
@@ -101,8 +108,8 @@
                         </div>
                         <div class="form-row">
                             <div class="col">
-                                <label for="textarea" class="contenttext">Your Message</label>
-                                <textarea rows="5" class="form-control" id="textarea" placeholder="Please put your question/message here..." required></textarea>
+                                <label for="textarea" class="contenttext">Your Feedback</label>
+                                <textarea rows="5" class="form-control" id="textarea" placeholder="Please leave your feedback here, thank you." required></textarea>
                             </div>
                         </div>
                         <div class="text-center">
@@ -155,5 +162,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
     <script async type="text/javascript" src="static/assets/js/index.js"></script>
+    <script src="static/assets/js/sendEmail.js" ></script>
 </body>
 </html>
