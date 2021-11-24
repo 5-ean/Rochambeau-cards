@@ -8,7 +8,6 @@
 /* --------------------Background colour, Fonts, padding & margins ------------------ */
 * {
     border-radius: .25rem;
-    text-align: center;
 }
 
 input {
@@ -23,9 +22,8 @@ html {
 }
 
 body {
-    height: 100%;
-    width: 100%;
-    background-color: #e5e5e5;
+    margin: 0;
+    background: radial-gradient(#e5e5e5, #D8B998)
 }
 
 h1 {
@@ -54,53 +52,53 @@ p {
 
 .collapsed {
     max-height: 0;
-  }
+  } 
+/* --------------------Game Container ------------------ */
 
-/* --------------------Cup Game Area, Cups, Buttons ------------------ */
+.game-canvas {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-gap: 10px;
+    margin: 50px;
+    justify-content: center;
+}
 
-#gamearea {
-    margin-top: 30px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 30px;
+.game-info-canvas {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+}
+
+.game-info {
+    font-size: 2em;
+}
+
+.card {
+    position: relative;
+    background-color: black;
+    height: 175px;
+    width: 125px;
+}
+
+.card-face {
+    position: absolute;
     width: 100%;
     height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.cups {
-    justify-content: space-evenly;
-}
-
-.cup {
-    
-    justify-self: center;
-    border-left: 25px solid transparent;
-    border-right: 25px solid transparent;
-    border-bottom: 220px solid;
-    min-width: 40px;
-    max-width: 250px;
-    min-height: 30px;
-    max-height: 400px;
-    padding: 5px 5px;
-    margin-left: 15px;
-    margin-right: 15px;
-    margin-bottom: 20px;
-
-}
-
-
-.ball {
-    display: none;
+.lighting {
     position: absolute;
-    left: 48.5%;
-    top: 320px;
-    align-self: center;
-    background: black;
-    border-radius: 50%;
-    height:60px;
-    width: 60px;
-    z-index: 2;
+    width: 47px;
+    height: 47px;
+    font-size: 30px;
+    font-weight: 900;
+    color: aqua;
 }
+
+
 
 /* --------------------Buttons ------------------ */
 
@@ -124,38 +122,7 @@ button:hover {
             inset 2px 2px 8px rgba(0,0,0,0.1);
 }
 
-#gamearea label {
 
-    font-size: clamp( 14px, 1.2rem, 20px);
-    color: #333;
-    padding: 3px;
-    margin: 5px;
-    border-radius: .25rem;
-    box-shadow: -3px -3px 6px rgba(255, 255,255, 0.8),
-                2px 2px 4px rgba(0, 0, 0, 0.2);
-}
-#gamearea label.left {
-    float: left;
-}
-
-#gamearea label.right{
-    float: right;
-}
-
-#gamearea label:hover {
-    font-weight: bold;
-    transform: scale(0.97);
-    box-shadow: -3px -3px 8px rgba(255, 255,255, 0.8),
-                3px 3px 8px rgba(0, 0, 0, 0.08),
-            inset -2px -2px 8px rgba(255, 255,255, 0.8),
-            inset 2px 2px 8px rgba(0,0,0,0.1);
-}
-
-#gamearea input:focus+label {
-    box-shadow: none;
-    background-color: black;
-    color: white;
-}
 
 /* --------------------Colour Picker------------------ */
 
@@ -164,7 +131,7 @@ button:hover {
     margin-left: auto;
     margin-right: auto;
     color: #333;
-    margin: 10px;
+    margin: 5px;
 }
 
 #colourpicker label {
@@ -182,11 +149,6 @@ button:hover {
     box-shadow: none;
     transform: none;
 }
-
-
-
-
-
 
 
 
@@ -224,58 +186,6 @@ li a i:hover {
                 inset 2px 2px 8px rgba(0,0,0,0.1);
     
 }
-
-/* --------------------Contact Us------------------ */
-.modal-header .close {
-    margin:3px 3px;
-    box-shadow: none;
-    border: 2px solid #e5e5e5;
-}
-
-footer button.submit {
-    text-transform: uppercase;
-    font-size: clamp;
-    border: none;
-    padding: 5px;
-    font-size: clamp( 14px, 1.2rem, 20px);
-    color: #333;
-    box-shadow: -3px -3px 6px rgba(255, 255,255, 0.8),
-                2px 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-footer button:hover {
-    background-color: #e5e5e5;
-    transform: scale(1.2);
-    box-shadow: -3px -3px 8px rgba(255, 255,255, 0.8),
-                3px 3px 8px rgba(0, 0, 0, 0.08),
-            inset -2px -2px 8px rgba(255, 255,255, 0.8),
-            inset 2px 2px 8px rgba(0,0,0,0.1);
-}
-
-.form-modal label {
-    border: none;
-    font-size: clamp( 14px, 1.2rem, 20px);
-    color: #333;
-    margin: 2px;
-    border-radius: .25rem;
-}
-
-.form-modal label:hover {
-    box-shadow:none;
-    transform: scale(none);
-
-}
-
-.modal-body {
-    background-color: #e5e5e5;
-}
-#form-modal .modal-body button {
-
-    margin-top: 10px;
-    margin-bottom: 2px;
-
-}
-
 /* -------------------Media Queries------------------ */
 @media(max-width: 372px) {
     h1 {
@@ -288,12 +198,4 @@ footer button:hover {
     p {
         font-size: 0.7rem;
     }
-    .cup {
-        border-bottom: 100px solid;
-    }
-    .ball {
-        position: absolute;
-        left: 45%;
-        top: 205px;
-    }
-  }
+}
