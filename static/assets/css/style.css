@@ -66,6 +66,7 @@ p {
 }
 
 .overlay-text {
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -76,6 +77,30 @@ p {
     align-items: center;
     z-index: 10;
     grid-column: 1 / -1;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 800;
+    font-size: 0;
+}
+
+.overlay-text-small {
+    font-size: .4em;
+    font-weight: 700;
+
+}
+
+.overlay-text.visible {
+    display: flex;
+    flex-direction: column;
+    animation: overlay-grow 500ms forwards;
+}
+
+@keyframes overlay-grow {
+    from {
+        font-size: 0;
+    }
+    to {
+        font-size: 3em;
+    }
 }
 
 .game-info-canvas {
@@ -287,18 +312,29 @@ footer {
     bottom: 0;
     height: 30px;
     width: 100%;
+    display: flex;
+    justify-content: space-around;
 }
 
 
-
 /* --------------------Social Links------------------ */
+ul {
+   display: flex;
+   list-style-type: none;
+   padding: 5px;
+   margin: 3px;
+   font-size: large;
+}
 
 li {
-    margin: 2px;
+    padding: 5px;
+    margin: 3px;
+    text-decoration: none;
 }
 
 li a i {
     padding: 5px;
+    margin: 2px;
     font-size: clamp( 14px, 1.2rem, 20px);
     color: #333;
     box-shadow: -3px -3px 6px rgba(255, 255,255, 0.8),
@@ -322,8 +358,21 @@ li a i:hover {
     
 }
 
+@media (max-width: 600px) {
+    .game-canvas {
+        grid-template-columns: repeat(2, auto);
+        align-items: center;
+    }
+
+    .game-info-canvas {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
 @media(max-width: 576px) {
     p {
         font-size: 0.7rem;
     }
 }
+
