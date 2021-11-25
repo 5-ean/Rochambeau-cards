@@ -65,6 +65,19 @@ p {
     perspective: 500px;
 }
 
+.overlay-text {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    grid-column: 1 / -1;
+}
+
 .game-info-canvas {
     grid-column: 1 / -1;
     display: flex;
@@ -102,6 +115,22 @@ p {
 
 .card.visible .card-front {
     transform: rotateY(0);
+}
+
+.card.win .card-value {
+    animation: dance 1s linear infinite 500ms;
+}
+
+@keyframes dance {
+    0%, 100% {
+        transform: rotate(0);
+    }
+    25% {
+        transform: rotate(-30deg);
+    }
+    75% {
+        transform: rotate(30deg);
+    }
 }
 
 .card-back {
