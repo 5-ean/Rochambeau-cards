@@ -23,7 +23,7 @@ html {
 
 body {
     margin: 0;
-    background: radial-gradient(#e5e5e5, #D8B998)
+    background: #98B7D7;
 }
 
 h1 {
@@ -73,9 +73,9 @@ p {
     font-size: 2em;
 }
 
+/* Card Styling */
 .card {
     position: relative;
-    background-color: black;
     height: 175px;
     width: 125px;
 }
@@ -87,17 +87,79 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+    backface-visibility: hidden;
+    border-width: 2px;
+    border-style: solid;
+}
+
+.card-back {
+    background-color: #D7B898;
+    border-color: white;
+}
+
+.card-front {
+    transform: rotateX(180deg);
 }
 
 .lighting {
     position: absolute;
-    width: 47px;
-    height: 47px;
-    font-size: 30px;
-    font-weight: 900;
+    width: 50px;
+    height: 50px;
+    font-size: 55px;
+    font-weight: 700;
     color: aqua;
+    padding: 5px;
+    transition: width 100ms ease-in-out, height 100ms ease-in-out;
 }
 
+.card-back:hover .lighting {
+    width: 25px;
+    height: 25px;
+}
+
+.lighting-top-left {
+    transform: rotate(300deg);
+    top: 0;
+    left: 0;
+    text-align: end;
+}
+
+.lighting-top-right {
+    transform: rotate(60deg) scaleX(-1);
+    top: 0;
+    right: 0;
+    text-align: end;
+}
+
+.lighting-bottom-left {
+    transform: rotate(240deg) scaleX(-1);
+    bottom: 0;
+    left: 0;
+    text-align: end;
+}
+
+.lighting-bottom-right {
+    transform: rotate(120deg);
+    bottom: 0;
+    right: 0;
+    text-align: end;
+}
+
+.handshake {
+    align-self: flex-end;
+    transform: translateY(-60px) translateX(-10px);
+    color: aqua;
+    width: 50px;
+    height: 50px;
+    font-size: 55px;
+    font-weight: 900;
+    transition: transfrom 100ms ease-in-out;
+}
+
+.card-back:hover .handshake {
+    transform: translateY(-60px) translateX(-10px) scale(1.2);
+} 
 
 
 /* --------------------Buttons ------------------ */
@@ -105,11 +167,10 @@ p {
 button {
     border: none;
     font-size: clamp( 14px, 1.2rem, 20px);
-    color: #333;
     padding: 5px;
     margin: 7px;
     border-radius: .25rem;
-    box-shadow: -3px -3px 6px rgba(255, 255,255, 0.8),
+    box-shadow: -3px -3px 6px #99CCCC,
                 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
@@ -130,7 +191,6 @@ button:hover {
     padding: 5px;
     margin-left: auto;
     margin-right: auto;
-    color: #333;
     margin: 5px;
 }
 
@@ -162,6 +222,8 @@ footer {
     height: 30px;
     width: 100%;
 }
+
+
 
 /* --------------------Social Links------------------ */
 
