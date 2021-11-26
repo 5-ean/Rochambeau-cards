@@ -52,7 +52,7 @@ class mainGame {
             //if statement
         }
     }
-    startCountdown() {
+    startCountDown() {
         return setInterval(() => {
             this.timeRemaining--;
             this.timer.innerText = this.timeRemaining;
@@ -62,6 +62,11 @@ class mainGame {
     }
     gameOver() {
         clearInterval(this.countDown);
+        document.getElementById('game-over-text').classList.add('visible');
+    }
+    victory() {
+        clearInterval(this.countDown);
+        document.getElementById('win-text').classlist.add('visible');
     }
 
     shuffleCards() {
