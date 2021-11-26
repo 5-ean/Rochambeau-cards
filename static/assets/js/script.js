@@ -1,27 +1,108 @@
-// Once DOM is loaded, run ready function
-if(document.readyState === "loading") {
-    document.addEventListener('DOMContentLoaded', ready());
-} else {
-    ready();
+class AudioController {
+    constructor() {
+        this.matchSound = new Audio('static/assets/audio/match.wav');
+        this.loseSound = new Audio('static/assets/audio/lose.wav');
+        this.winSound = new Audio('static/assets/audio/win.wav');
+    }
+    match() {
+        this.matchSound.play();
+    }
+    lose() {
+        this.loseSound.play();
+    }
+    win() {
+        this.winSound.play();
+    }
+}
+
+class mainGame {
+    constructor(totalTime, cards) {
+        this.cardsArray = cards;
+        this.totalTime = totalTime;
+        this.timeRemaining = totalTime;
+        this.timer = document.getElementById('time-remaining');
+        this.lives = document.getElementById('lives');
+        this.audioController = new AudioController();
+    }
+    startGame() {
+        this.cardToCheck = null;
+        this.totalLives = 3;
+        this.timeRemaining = this.totalTime;
+        this.winningCards = []
+        this.busy = true;
+        setTimeout(() => {
+            this.shuffleCards();
+            this.countDown = this.startCountDown();
+            this.busy = false;
+        }, 500);
+        this.hideCards();
+        this.timer.innerText = this.timeRemaining;
+        this.lives.innerText = this.totalLives;
+    }
+    hideCards() {
+        this.cardsArray.forEach(card => {
+            card.classList.remove('visible');
+            card.classlist.remove('win');
+        });
+    }
+    flipCard(card) {
+        if(this.canFlipCard(card)) {
+            card.classList.add('visible');
+
+            //if statement
+        }
+    }
+    startCountdown() {
+        return setInterval(() => {
+            this.timeRemaining--;
+            this.timer.innerText = this.timeRemaining;
+            if(this.timeRemaining === 0)
+                this.gameOver();
+        }, 1000);
+    }
+    gameOver() {
+        clearInterval(this.countDown);
+    }
+
+    shuffleCards() {
+        //Fisher & Yates shuffle
+        for(let i = this.cardsArray.length -1; i > 0; i--) {
+            let randIndex = Math.floor(Math.random() * (i+1));
+            this.cardsArray[randIndex].style.order = i;
+            this.cardsArray[i].style.order = randIndex;
+        }
+    }
+
+    canFlipCard(card) {
+        return true;
+        //return !this.busy && !this.winningCards.includes(card) && card !== this.cardToCheck;
+    }
 }
 
 function ready() {
     // Creates an array from html elements viva class name.
     let overlays = Array.from(document.getElementsByClassName('overlay-text'));
     let cards = Array.from(document.getElementsByClassName('card'));
+    let game = new mainGame(50, cards);
 
     overlays.forEach(overlay => {
         overlay.addEventListener('click', () => {
             overlay.classList.remove('visible');
+            game.startGame();
         });
     });
     cards.forEach(card => {
         card.addEventListener('click', () => {
-            // game.flipCard(card);
+            game.flipCard(card);
         });
     });
 }
-
+// Once DOM is loaded, run ready function
+if(document.readyState === "loading") {
+    document.addEventListener('DOMContentLoaded', ready());
+} else {
+    ready();
+}
 
 // Colour Customizable DOM Elements
 let fb = document.getElementById("fb");
@@ -40,13 +121,19 @@ var intructionbtn = document.getElementById("intructionbtn");
  */
 // ColourPicker Wheel & Slice Bar
 
-const colorpicker = new iro.ColorPicker("#colourpicker", {
-    width:90,
-});
+var colorPicker = new iro.ColorPicker('#colourpicker', {
+    width: 90,
+    layout: [
+      { 
+        component: iro.ui.Wheel,
+        options: {}
+      },
+    ]
+  });
 // Locates ColourPicker HexString Value
-let inputColor = colorpicker.color.hexString;
+let inputColor = colorPicker.color.hexString;
 // Retrieves Key: “colour” and  value : “locally Stored Hexstring”
-let storedHex = (localStorage.getItem("colour", JSON.stringify(colorpicker.color.hexString)));
+let storedHex = (localStorage.getItem("colour", JSON.stringify(colorPicker.color.hexString)));
 
 
 // Instruction Button display toggle
@@ -59,7 +146,7 @@ document.querySelector("#intructionbtn").addEventListener('click', () =>
 window.onload = function memory() {
 if(storedHex === null) {
 
-    colorpicker.on();
+    colorPicker.on();
     
 
 } if (inputColor !== storedHex) {
@@ -75,7 +162,7 @@ if(storedHex === null) {
 };
 
 // User Interaction With ColorWheel & Slider
-colorpicker.on('color:change', function(color) {
+colorPicker.on('color:change', function(color) {
     
     fb.style.color = color.hexString;
     tw.style.color = color.hexString;
