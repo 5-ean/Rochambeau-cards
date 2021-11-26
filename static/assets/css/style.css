@@ -75,7 +75,7 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 10;
+    z-index: 100;
     grid-column: 1 / -1;
     font-family: 'Orbitron', sans-serif;
     font-weight: 800;
@@ -342,13 +342,17 @@ li a i {
 }
 
 li a i:hover {
-    background-color: #e5e5e5;
+    background-color: #98B7D7;
     transform: scale(1.2);
-    box-shadow: -3px -3px 8px rgba(255, 255,255, 0.8),
-                3px 3px 8px rgba(0, 0, 0, 0.08),
-                inset -2px -2px 8px rgba(255, 255,255, 0.8),
+    box-shadow: -3px -3px 8px rgba(0, 0, 0, 0.7),
+                3px 3px 8px rgba(0, 0, 0, 0.07),
+                inset -2px -2px 8px rgba(0, 0, 0.8),
                 inset 2px 2px 8px rgba(0,0,0,0.1);
     
+}
+
+li a i::before {
+    font-size: xx-large;
 }
 /* -------------------Media Queries------------------ */
 @media(max-width: 372px) {
