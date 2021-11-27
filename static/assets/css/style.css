@@ -57,7 +57,7 @@ p {
 
 .game-canvas {
     display: grid;
-    grid-template-columns: repeat(3, auto);
+    grid-template-columns: repeat(4, auto);
     grid-gap: 15px;
     margin: 50px;
     justify-content: center;
@@ -91,6 +91,7 @@ p {
     display: flex;
     flex-direction: column;
     animation: overlay-grow 500ms forwards;
+    color: white;
 }
 
 @keyframes overlay-grow {
@@ -363,7 +364,7 @@ li a i::before {
 
 @media (max-width: 600px) {
     .game-canvas {
-        grid-template-columns: repeat(2, auto);
+        grid-template-columns: repeat(3, auto);
         align-items: center;
     }
 

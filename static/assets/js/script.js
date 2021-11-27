@@ -44,9 +44,10 @@ class mainGame {
     startGame() {
         // Conditions when click to start
         this.cardToCheck = null;
-        this.totalLives = 3;
+        this.totalLives = 5;
         this.timeRemaining = this.totalTime;
         this.winningCards = []
+        this.beatenCards = []
         this.busy = true;
         setTimeout(() => {
             this.shuffleCards();
@@ -61,6 +62,7 @@ class mainGame {
         this.cardsArray.forEach(card => {
             card.classList.remove('visible');
             card.classlist.remove('win');
+            card.classList.remove('lose');
         });
     }
     flipCard(card) {
@@ -87,9 +89,14 @@ class mainGame {
         setTimeout(() => {
             card1.classList.remove('visible');
             card2.classList.remove('visible');
+            card1.classList.remove('win');
+            card2.classList.remove('win');
+            card1.classList.remove('lose');
+            card2.classList.remove('lose');
             this.audioController.match();
             this.busy = false;
         }, 1000);
+        console.log(card1, card2)
     }
     cardWin(card1, card2) {
         this.winningCards.push(card1);
@@ -97,8 +104,19 @@ class mainGame {
         card1.classList.add('win');
         card2.classList.add('win');
         this.audioController.win();
-        if(this.winningCards.length === this.cardsArray.length)
+        if(this.winningCards.length >= (this.cardsArray.length - this.beatenCards.length))
             this.victory();
+    }
+    cardLose(card1, card2) {
+        this.beatenCards.push(card1);
+        this.beatenCards.push(card2);
+        card1.classList.add('lose');
+        card2.classList.add('lose');
+        this.audioController.lose();
+        this.totalLives--;
+        this.lives.innerText = this.totalLives;
+        if(this.totalLives == 0)
+            this.gameOver();
     }
     cardResult(card1, card2) {
         const firstValue = this.getCardType(card1)
@@ -109,8 +127,8 @@ class mainGame {
             this.cardWin(card1, card2);
         }
         else
-            console.log('lose')
-    }
+            this.cardLose(card1, card2);
+    } 
     getCardType(card) {
         // Returns .scissors, .rock or .paper as cardType
         return card.getElementsByClassName('card-value')[0].classList[2];
@@ -128,6 +146,7 @@ class mainGame {
         // Game-over overlay.
         clearInterval(this.countDown);
         document.getElementById('game-over-text').classList.add('visible');
+        startGame();
     }
     victory() {
         // Victory overlay. 
@@ -145,7 +164,8 @@ class mainGame {
     }
 
     canFlipCard(card) {
-        return !this.busy && !this.winningCards.includes(card) && card !== this.cardToCheck;
+        // Setting conditions for a can that CAN be flipped. All false returns true.
+        return !this.busy && !this.beatenCards.includes(card) && !this.winningCards.includes(card) && card !== this.cardToCheck;
     }
 }
 
