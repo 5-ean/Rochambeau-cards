@@ -91,13 +91,25 @@ class mainGame {
             this.busy = false;
         }, 1000);
     }
+    cardWin(card1, card2) {
+        this.winningCards.push(card1);
+        this.winningCards.push(card2);
+        card1.classList.add('win');
+        card2.classList.add('win');
+        this.audioController.win();
+        if(this.winningCards.length === this.cardsArray.length)
+            this.victory();
+    }
     cardResult(card1, card2) {
-        const firstValue = this.getCardType(card2)
+        const firstValue = this.getCardType(card1)
         const firstSelection = CARDVALUES.find(selection => selection.name === firstValue)
-        const secondValue = this.getCardType(card1)
+        const secondValue = this.getCardType(card2)
         const secondSelection = CARDVALUES.find(selection => selection.name === secondValue)
-        console.log(firstSelection)
-        console.log(secondSelection)
+        if (firstSelection.name === secondSelection.beats) {
+            this.cardWin(card1, card2);
+        }
+        else
+            console.log('lose')
     }
     getCardType(card) {
         // Returns .scissors, .rock or .paper as cardType

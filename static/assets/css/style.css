@@ -143,6 +143,7 @@ p {
 
 .card.win .card-value {
     animation: dance 1s linear infinite 500ms;
+    background-color: green;
 }
 
 @keyframes dance {
