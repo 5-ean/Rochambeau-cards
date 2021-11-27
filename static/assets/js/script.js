@@ -15,7 +15,24 @@ class AudioController {
     }
 }
 
+const CARDVALUES = [
+    {
+        name: 'rock',
+        beats: 'scissors'
+    },
+    {
+        name: 'paper',
+        beats: 'rock'
+    },
+    {
+        name: 'scissors',
+        beats: 'paper'
+    }
+]
+
+
 class mainGame {
+    // Game Set up
     constructor(totalTime, cards) {
         this.cardsArray = cards;
         this.totalTime = totalTime;
@@ -25,6 +42,7 @@ class mainGame {
         this.audioController = new AudioController();
     }
     startGame() {
+        // Conditions when click to start
         this.cardToCheck = null;
         this.totalLives = 3;
         this.timeRemaining = this.totalTime;
@@ -49,10 +67,44 @@ class mainGame {
         if(this.canFlipCard(card)) {
             card.classList.add('visible');
 
-            //if statement
+            if(this.cardToCheck)
+                this.checkForCardMatch(card);
+            else
+                this.cardToCheck = card;
         }
     }
+    checkForCardMatch(card) {
+        if(this.getCardType(card) === this.getCardType(this.cardToCheck))
+            this.cardMatch(card, this.cardToCheck);
+        else
+            this.cardResult(card, this.cardToCheck);
+
+        this.cardToCheck = null;
+    }
+    cardMatch(card1, card2) {
+        // When Cards Match they are turned back around.
+        this.busy = true;
+        setTimeout(() => {
+            card1.classList.remove('visible');
+            card2.classList.remove('visible');
+            this.audioController.match();
+            this.busy = false;
+        }, 1000);
+    }
+    cardResult(card1, card2) {
+        const firstValue = this.getCardType(card2)
+        const firstSelection = CARDVALUES.find(selection => selection.name === firstValue)
+        const secondValue = this.getCardType(card1)
+        const secondSelection = CARDVALUES.find(selection => selection.name === secondValue)
+        console.log(firstSelection)
+        console.log(secondSelection)
+    }
+    getCardType(card) {
+        // Returns .scissors, .rock or .paper as cardType
+        return card.getElementsByClassName('card-value')[0].classList[2];
+    }
     startCountDown() {
+        // Timer function counts down from 50 seconds.
         return setInterval(() => {
             this.timeRemaining--;
             this.timer.innerText = this.timeRemaining;
@@ -61,10 +113,12 @@ class mainGame {
         }, 1000);
     }
     gameOver() {
+        // Game-over overlay.
         clearInterval(this.countDown);
         document.getElementById('game-over-text').classList.add('visible');
     }
     victory() {
+        // Victory overlay. 
         clearInterval(this.countDown);
         document.getElementById('win-text').classlist.add('visible');
     }
@@ -79,8 +133,7 @@ class mainGame {
     }
 
     canFlipCard(card) {
-        return true;
-        //return !this.busy && !this.winningCards.includes(card) && card !== this.cardToCheck;
+        return !this.busy && !this.winningCards.includes(card) && card !== this.cardToCheck;
     }
 }
 

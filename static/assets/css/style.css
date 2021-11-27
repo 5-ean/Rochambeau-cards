@@ -172,14 +172,13 @@ p {
     border-style: ridge;
 }
 
-/* Scissors cards */
-.cut, .paper, .rock {
+.scissors, .paper, .rock {
     font-size: 55px;
     font-weight: 900;
     transition: transfrom 100ms ease-in-out;
 }
 
-.card-front:hover .cut {
+.card-front:hover .scissors {
     transform: scale(1.3);
 }
 
