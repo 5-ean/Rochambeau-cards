@@ -1,5 +1,5 @@
 class AudioController {
-    // Setting audio sounds for interative game.
+    // Setting audio sounds for card states.
     constructor() {
         this.matchSound = new Audio('static/assets/audio/match.wav');
         this.loseSound = new Audio('static/assets/audio/lose.wav');
@@ -17,7 +17,7 @@ class AudioController {
 }
 
 const CARDVALUES = [
-    // Use to determine win and loses for cardResults.
+    // Use to determine win and loses for cardResults e.g Rock beats scissors.
     {
         name: 'rock',
         beats: 'scissors'
@@ -34,7 +34,7 @@ const CARDVALUES = [
 
 
 class mainGame {
-    // Game Set up
+    // Game Set up on DOM load complete.
     constructor(totalTime, cards) {
         this.cardsArray = cards;
         this.totalTime = totalTime;
@@ -44,7 +44,7 @@ class mainGame {
         this.audioController = new AudioController();
     }
     startGame() {
-        // Conditions set on click to start.
+        // Conditions set on click to start/restart.
         this.cardToCheck = null;
         this.totalLives = 5;
         this.timeRemaining = this.totalTime;
@@ -64,7 +64,7 @@ class mainGame {
     hideCards() {
         this.cardsArray.forEach(card => {
             card.classList.remove('visible');
-            card.classlist.remove('win');
+            card.classList.remove('win');
             card.classList.remove('lose');
         });
     }
@@ -80,7 +80,7 @@ class mainGame {
         }
     }
     checkForCardMatch(card) {
-        // If cards match run match function else run results function.
+        // If card types match: runs match function, else run results function.
         if(this.getCardType(card) === this.getCardType(this.cardToCheck))
             this.cardMatch(card, this.cardToCheck);
         else
@@ -91,9 +91,9 @@ class mainGame {
     cardMatch(card1, card2) {
         // When Cards Match they are turned back around.
         this.busy = true;
+        this.matchedCards.push(card1);
+        this.matchedCards.push(card2);
         setTimeout(() => {
-            this.matchedCards.push(card1);
-            this.matchedCards.push(card2);
             card1.classList.remove('visible');
             card2.classList.remove('visible');
             card1.classList.remove('win');
@@ -102,12 +102,13 @@ class mainGame {
             card2.classList.remove('lose');
             this.audioController.match();
             this.busy = false;
-            if(this.winningCards.length > this.beatenCards.length && this.winningCards.length + this.beatenCards.length >= 10)
+            // Win check, used to guard against last two cards being matching. If so and winningCards [] > beatenCards [] = victory.
+            if((this.winningCards.length > this.beatenCards.length) && (this.winningCards.length + this.beatenCards.length >= 10))
                 this.victory();
         }, 1000);
-        console.log(this.matchedCards.length)
     }
     cardWin(card1, card2) {
+        // Function for collecting and displaying winning cards.
         this.matchedCards.pop(card1);
         this.matchedCards.pop(card2);
         this.winningCards.push(card1);
@@ -115,11 +116,12 @@ class mainGame {
         card1.classList.add('win');
         card2.classList.add('win');
         this.audioController.win();
+        // Win check, if winning array is greater or equal to total cards (12) - array of beaten cards = victory.
         if(this.winningCards.length >= (this.cardsArray.length - this.beatenCards.length))
             this.victory();
-        console.log(this.winningCards.length)
     }
     cardLose(card1, card2) {
+        // Function for collecting and displaying lossing cards.
         this.matchedCards.pop(card1);
         this.matchedCards.pop(card2);
         this.beatenCards.push(card1);
@@ -127,13 +129,15 @@ class mainGame {
         card1.classList.add('lose');
         card2.classList.add('lose');
         this.audioController.lose();
+        // One live lost for ever incorrect pair selection.
         this.totalLives--;
         this.lives.innerText = this.totalLives;
-        if(this.beatenCards.length >= (this.cardsArray.length - this.winningCards.length) || this.totalLives == 0)
+        // Lose check, if total beaten cards is greater than winning cards & all possible cards have been selected OR lives reach 0 = Game Over.
+        if((this.beatenCards.length > this.winningCards.length) && (this.winningCards.length + this.beatenCards.length >= 10) || this.totalLives == 0)
             this.gameOver();
-        console.log(this.beatenCards.length)
     }
     cardResult(card1, card2) {
+        // Function takes first picked cards name and compares to the second cards key value pair beats.
         const firstValue = this.getCardType(card1)
         const firstSelection = CARDVALUES.find(selection => selection.name === firstValue)
         const secondValue = this.getCardType(card2)
