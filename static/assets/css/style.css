@@ -142,7 +142,7 @@ p {
     transform: rotateY(0);
 }
 
-.card.win .card-value {
+.card.win .card-front {
     animation: dance 1s linear infinite 500ms;
     background-color: green;
 }
@@ -152,10 +152,30 @@ p {
         transform: rotate(0);
     }
     25% {
-        transform: rotate(-30deg);
+        transform: rotate(-15deg);
     }
     75% {
-        transform: rotate(30deg);
+        transform: rotate(15deg);
+    }
+}
+
+.card.lose .card-front {
+    animation: incorrect 1s linear forwards;
+    background-color:red;
+}
+
+@keyframes incorrect {
+    0% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(0.9);
+    }
+    75% {
+        transform: scale(0.8);
+    }
+    100% {
+        transform: scale(0.7);
     }
 }
 
@@ -380,3 +400,15 @@ li a i::before {
     }
 }
 
+@media(max-width: 499px) {
+    .game-canvas {
+        grid-template-columns: repeat(2, auto);
+        align-items: center;
+    }
+
+    footer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+}

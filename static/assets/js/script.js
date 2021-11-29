@@ -1,4 +1,5 @@
 class AudioController {
+    // Setting audio sounds for interative game.
     constructor() {
         this.matchSound = new Audio('static/assets/audio/match.wav');
         this.loseSound = new Audio('static/assets/audio/lose.wav');
@@ -16,6 +17,7 @@ class AudioController {
 }
 
 const CARDVALUES = [
+    // Use to determine win and loses for cardResults.
     {
         name: 'rock',
         beats: 'scissors'
@@ -42,10 +44,11 @@ class mainGame {
         this.audioController = new AudioController();
     }
     startGame() {
-        // Conditions when click to start
+        // Conditions set on click to start.
         this.cardToCheck = null;
         this.totalLives = 5;
         this.timeRemaining = this.totalTime;
+        this.matchedCards = []
         this.winningCards = []
         this.beatenCards = []
         this.busy = true;
@@ -66,6 +69,7 @@ class mainGame {
         });
     }
     flipCard(card) {
+        // Flips card if canFlipCard is true.
         if(this.canFlipCard(card)) {
             card.classList.add('visible');
 
@@ -76,6 +80,7 @@ class mainGame {
         }
     }
     checkForCardMatch(card) {
+        // If cards match run match function else run results function.
         if(this.getCardType(card) === this.getCardType(this.cardToCheck))
             this.cardMatch(card, this.cardToCheck);
         else
@@ -87,6 +92,8 @@ class mainGame {
         // When Cards Match they are turned back around.
         this.busy = true;
         setTimeout(() => {
+            this.matchedCards.push(card1);
+            this.matchedCards.push(card2);
             card1.classList.remove('visible');
             card2.classList.remove('visible');
             card1.classList.remove('win');
@@ -95,10 +102,14 @@ class mainGame {
             card2.classList.remove('lose');
             this.audioController.match();
             this.busy = false;
+            if(this.winningCards.length > this.beatenCards.length && this.winningCards.length + this.beatenCards.length >= 10)
+                this.victory();
         }, 1000);
-        console.log(card1, card2)
+        console.log(this.matchedCards.length)
     }
     cardWin(card1, card2) {
+        this.matchedCards.pop(card1);
+        this.matchedCards.pop(card2);
         this.winningCards.push(card1);
         this.winningCards.push(card2);
         card1.classList.add('win');
@@ -106,8 +117,11 @@ class mainGame {
         this.audioController.win();
         if(this.winningCards.length >= (this.cardsArray.length - this.beatenCards.length))
             this.victory();
+        console.log(this.winningCards.length)
     }
     cardLose(card1, card2) {
+        this.matchedCards.pop(card1);
+        this.matchedCards.pop(card2);
         this.beatenCards.push(card1);
         this.beatenCards.push(card2);
         card1.classList.add('lose');
@@ -115,8 +129,9 @@ class mainGame {
         this.audioController.lose();
         this.totalLives--;
         this.lives.innerText = this.totalLives;
-        if(this.totalLives == 0)
+        if(this.beatenCards.length >= (this.cardsArray.length - this.winningCards.length) || this.totalLives == 0)
             this.gameOver();
+        console.log(this.beatenCards.length)
     }
     cardResult(card1, card2) {
         const firstValue = this.getCardType(card1)
@@ -146,12 +161,11 @@ class mainGame {
         // Game-over overlay.
         clearInterval(this.countDown);
         document.getElementById('game-over-text').classList.add('visible');
-        startGame();
     }
     victory() {
         // Victory overlay. 
         clearInterval(this.countDown);
-        document.getElementById('win-text').classlist.add('visible');
+        document.getElementById('win-text').classList.add('visible');
     }
 
     shuffleCards() {
