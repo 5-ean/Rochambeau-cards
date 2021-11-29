@@ -143,7 +143,7 @@ p {
 }
 
 .card.win .card-front {
-    animation: dance 1s linear infinite 500ms;
+    animation: dance 2s linear infinite 500ms;
     background-color: green;
 }
 
@@ -152,10 +152,10 @@ p {
         transform: rotate(0);
     }
     25% {
-        transform: rotate(-15deg);
+        transform: rotate(-10deg);
     }
     75% {
-        transform: rotate(15deg);
+        transform: rotate(10deg);
     }
 }
 
@@ -169,13 +169,13 @@ p {
         transform: scale(1);
     }
     25% {
-        transform: scale(0.9);
+        transform: scale(0.95);
     }
     75% {
-        transform: scale(0.8);
+        transform: scale(0.9);
     }
     100% {
-        transform: scale(0.7);
+        transform: scale(0.85);
     }
 }
 
