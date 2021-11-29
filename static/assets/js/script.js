@@ -117,7 +117,7 @@ class mainGame {
         card2.classList.add('win');
         this.audioController.win();
         // Win check, if winning array is greater or equal to total cards (12) - array of beaten cards = victory.
-        if(this.winningCards.length >= (this.cardsArray.length - this.beatenCards.length))
+        if(this.winningCards.length >= this.cardsArray.length - this.beatenCards.length)
             this.victory();
     }
     cardLose(card1, card2) {
@@ -230,7 +230,7 @@ var intructionbtn = document.getElementById("intructionbtn");
 // ColourPicker Wheel & Slice Bar
 
 var colorPicker = new iro.ColorPicker('#colourpicker', {
-    width: 90,
+    width: 65,
     layout: [
       { 
         component: iro.ui.Wheel,

@@ -39,6 +39,7 @@ h1, h2, h3, .contenttext {
 p {
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
+    margin: 8px;
 }
 
 /* --------------------Header, How To Play Instructions------------------ */
@@ -276,22 +277,21 @@ p {
 /* --------------------Buttons ------------------ */
 
 button {
+    font-family: 'Orbitron', sans-serif;
+    background-color: #98B7D7;
     border: none;
-    font-size: clamp( 14px, 1.2rem, 20px);
     padding: 5px;
-    margin: 7px;
-    border-radius: .25rem;
-    box-shadow: -3px -3px 6px #99CCCC,
-                2px 2px 4px rgba(0, 0, 0, 0.2);
+    margin: 2px;
+    font-size: clamp( 14px, 1.2rem, 20px);
+    color: #333;
+    box-shadow: -2px -2px 4px rgb(186, 216, 247, 0.8),
+                3px 3px 6px rgba(0, 0, 0, 0.2);
 }
 
 button:hover {
     font-weight: bold;
-    transform: scale(0.97);
-    box-shadow: -3px -3px 8px rgba(255, 255,255, 0.8),
-                3px 3px 8px rgba(0, 0, 0, 0.08),
-            inset -2px -2px 8px rgba(255, 255,255, 0.8),
-            inset 2px 2px 8px rgba(0,0,0,0.1);
+    transform: scale(1.1);
+    
 }
 
 
@@ -299,10 +299,11 @@ button:hover {
 /* --------------------Colour Picker------------------ */
 
 #colourpicker {
-    padding: 5px;
+    height: 15px;
+    padding: 2px;
     margin-left: auto;
     margin-right: auto;
-    margin: 5px;
+    margin: 2px;
 }
 
 #colourpicker label {
@@ -310,9 +311,8 @@ button:hover {
     float: left;
     font-size: medium;
     animation: none;
-    margin-top: 30px;
-    margin-left: 100px;
-    
+    margin-top: 22px;
+    margin-left: 72px;    
 }
 
 #colourpicker label:hover {
@@ -320,9 +320,6 @@ button:hover {
     box-shadow: none;
     transform: none;
 }
-
-
-
 
 
 /* --------------------Footer------------------ */
@@ -357,18 +354,13 @@ li a i {
     margin: 2px;
     font-size: clamp( 14px, 1.2rem, 20px);
     color: #333;
-    box-shadow: -3px -3px 6px rgba(255, 255,255, 0.8),
-                2px 2px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: -2px -2px 4px rgb(186, 216, 247, 0.8),
+                3px 3px 6px rgba(0, 0, 0, 0.2);
 }
 
 li a i:hover {
     background-color: #98B7D7;
     transform: scale(1.2);
-    box-shadow: -3px -3px 8px rgba(0, 0, 0, 0.7),
-                3px 3px 8px rgba(0, 0, 0, 0.07),
-                inset -2px -2px 8px rgba(0, 0, 0.8),
-                inset 2px 2px 8px rgba(0,0,0,0.1);
-    
 }
 
 li a i::before {
@@ -410,5 +402,4 @@ li a i::before {
         flex-direction: column;
         align-items: center;
     }
-
 }
