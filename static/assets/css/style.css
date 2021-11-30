@@ -33,16 +33,15 @@ h1 {
 h1, h2, h3, .contenttext {
     text-align: center;
     font-family: 'Orbitron', sans-serif;
-    margin-bottom: 15px;
-    
+    margin-bottom: 15px;  
 }
 
-p.text-center {
-    font-family: 'Orbitron', sans-serif;
+#title-rock {
+    width: 20px;
 }
 
 p {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Orbitron', sans-serif;
     font-weight: bold;
     margin: 8px;
 }
