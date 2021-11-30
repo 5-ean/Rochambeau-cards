@@ -17,7 +17,7 @@ input {
 
 html {
     position: absolute;
-    min-height: 100%;
+    min-height: auto;
     width: 100%;
 }
 
@@ -33,13 +33,22 @@ h1 {
 h1, h2, h3, .contenttext {
     text-align: center;
     font-family: 'Orbitron', sans-serif;
+    margin-bottom: 15px;
     
+}
+
+p.text-center {
+    font-family: 'Orbitron', sans-serif;
 }
 
 p {
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
     margin: 8px;
+}
+
+.text-center {
+    text-align: center;
 }
 
 /* --------------------Header, How To Play Instructions------------------ */
@@ -60,7 +69,8 @@ p {
     display: grid;
     grid-template-columns: repeat(4, auto);
     grid-gap: 15px;
-    margin: 50px;
+    padding-bottom: 5px;
+    margin: 5px 40px 30px 40px;
     justify-content: center;
     /* Setting perspective of game */
     perspective: 500px;
@@ -111,6 +121,15 @@ p {
 }
 
 .game-info {
+    font-size: 2em;
+}
+
+#heart {
+    font-size: 2em;
+    color: red;
+}
+
+#clock {
     font-size: 2em;
 }
 
@@ -299,6 +318,7 @@ button:hover {
 /* --------------------Colour Picker------------------ */
 
 #colourpicker {
+    flex-wrap: wrap;
     height: 15px;
     padding: 2px;
     margin-left: auto;
@@ -330,27 +350,29 @@ footer {
     height: 30px;
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 
 
 /* --------------------Social Links------------------ */
+
 ul {
    display: flex;
    list-style-type: none;
-   padding: 5px;
-   margin: 3px;
-   font-size: large;
+   padding: 4px;
+   margin: 2px;
+   font-size: clamp( 14px, 1.2rem, 20px);
 }
 
 li {
-    padding: 5px;
-    margin: 3px;
+    padding: 4px;
+    margin: 1px;
     text-decoration: none;
 }
 
 li a i {
-    padding: 5px;
+    padding: 4px;
     margin: 2px;
     font-size: clamp( 14px, 1.2rem, 20px);
     color: #333;
@@ -381,14 +403,13 @@ li a i::before {
     }
 
     .game-info-canvas {
-        flex-direction: column;
-        align-items: center;
+        font-size: 1rem;
     }
 }
 
 @media(max-width: 576px) {
     p {
-        font-size: 0.7rem;
+        font-size: 1rem;
     }
 }
 
@@ -397,9 +418,20 @@ li a i::before {
         grid-template-columns: repeat(2, auto);
         align-items: center;
     }
-
-    footer {
+    .overlay-text {
+        text-align: center;
+    }
+    label {
+        display: none;
+    }
+    .game-info-canvas {
+        font-size: .9rem;
         flex-direction: column;
-        align-items: center;
+    }
+}
+
+@media(max-width: 346px) {
+    #colourpicker {
+        display: none;
     }
 }

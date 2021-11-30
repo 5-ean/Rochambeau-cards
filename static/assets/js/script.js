@@ -103,7 +103,7 @@ class mainGame {
             this.audioController.match();
             this.busy = false;
             // Win check, used to guard against last two cards being matching. If so and winningCards [] > beatenCards [] = victory.
-            if((this.winningCards.length > this.beatenCards.length) && (this.winningCards.length + this.beatenCards.length >= 10))
+            if((this.winningCards.length >= this.beatenCards.length) && (this.winningCards.length + this.beatenCards.length >= 10))
                 this.victory();
         }, 1000);
     }
@@ -117,7 +117,7 @@ class mainGame {
         card2.classList.add('win');
         this.audioController.win();
         // Win check, if winning array is greater or equal to total cards (12) - array of beaten cards = victory.
-        if(this.winningCards.length >= this.cardsArray.length - this.beatenCards.length)
+        if(this.winningCards.length >= (this.cardsArray.length - this.beatenCards.length))
             this.victory();
     }
     cardLose(card1, card2) {
@@ -133,7 +133,7 @@ class mainGame {
         this.totalLives--;
         this.lives.innerText = this.totalLives;
         // Lose check, if total beaten cards is greater than winning cards & all possible cards have been selected OR lives reach 0 = Game Over.
-        if((this.beatenCards.length > this.winningCards.length) && (this.winningCards.length + this.beatenCards.length >= 10) || this.totalLives == 0)
+        if((this.beatenCards.length >= this.winningCards.length) && (this.winningCards.length + this.beatenCards.length >= 10) || this.totalLives == 0)
             this.gameOver();
     }
     cardResult(card1, card2) {
@@ -218,6 +218,8 @@ let tw = document.getElementById("tw");
 let yt = document.getElementById("yt");
 let insta = document.getElementById("insta");
 let gm = document.getElementById("gm");
+let clock = document.querySelector('#clock');
+let heart = document.querySelector('#heart');
 //
 var instructions = document.getElementById("instructions");
 var intructionbtn = document.getElementById("intructionbtn");
@@ -267,6 +269,8 @@ if(storedHex === null) {
     yt.style.color = inputColor;
     insta.style.color = inputColor;
     gm.style.color = inputColor;
+    clock.style.color = inputColor;
+    heart.style.color = inputColor;
 };
 
 // User Interaction With ColorWheel & Slider
@@ -277,6 +281,8 @@ colorPicker.on('color:change', function(color) {
     yt.style.color = color.hexString;
     insta.style.color = color.hexString;
     gm.style.color = color.hexString;
+    clock.style.color = color.hexString;
+    heart.style.color = color.hexString;
 
     localStorage.setItem("colour", color.hexString);
 })};
