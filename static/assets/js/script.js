@@ -62,6 +62,7 @@ class mainGame {
         this.lives.innerText = this.totalLives;
     }
     hideCards() {
+        // Returns cards to default position.
         this.cardsArray.forEach(card => {
             card.classList.remove('visible');
             card.classList.remove('win');
@@ -71,8 +72,9 @@ class mainGame {
     flipCard(card) {
         // Flips card if canFlipCard is true.
         if(this.canFlipCard(card)) {
+            // Card is flipped.
             card.classList.add('visible');
-
+            // Checks if cards match.
             if(this.cardToCheck)
                 this.checkForCardMatch(card);
             else
@@ -94,12 +96,8 @@ class mainGame {
         this.matchedCards.push(card1);
         this.matchedCards.push(card2);
         setTimeout(() => {
-            card1.classList.remove('visible');
-            card2.classList.remove('visible');
-            card1.classList.remove('win');
-            card2.classList.remove('win');
-            card1.classList.remove('lose');
-            card2.classList.remove('lose');
+            card1.classList.remove('visible', 'win', 'lose');
+            card2.classList.remove('visible', 'win', 'lose');
             this.audioController.match();
             this.busy = false;
             // Win check, used to guard against last two cards being the same value. If true and winningCards [] > beatenCards [] = victory.
