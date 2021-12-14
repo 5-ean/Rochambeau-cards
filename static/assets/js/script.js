@@ -93,8 +93,7 @@ class mainGame {
     cardMatch(card1, card2) {
         // When Cards Match they are turned back around.
         this.busy = true;
-        this.matchedCards.push(card1);
-        this.matchedCards.push(card2);
+        this.matchedCards.push(card1, card2);
         setTimeout(() => {
             card1.classList.remove('visible', 'win', 'lose');
             card2.classList.remove('visible', 'win', 'lose');
@@ -103,27 +102,25 @@ class mainGame {
             // Win check, used to guard against last two cards being the same value. If true and winningCards [] > beatenCards [] = victory.
             if((this.winningCards.length >= this.beatenCards.length) && (this.winningCards.length + this.beatenCards.length >= 10))
                 this.victory();
+                console.log("winning is >= beaten and win + beaten >= 10")
         }, 1000);
     }
     cardWin(card1, card2) {
         // Function for collecting and displaying winning cards.
-        this.matchedCards.pop(card1);
-        this.matchedCards.pop(card2);
-        this.winningCards.push(card1);
-        this.winningCards.push(card2);
+        this.matchedCards.pop(card1, card2);
+        this.winningCards.push(card1, card2);
         card1.classList.add('win');
         card2.classList.add('win');
         this.audioController.win();
         // Win check, if winning array is greater or equal to total cards (12) - array of beaten cards = victory.
-        if(this.winningCards.length >= (this.cardsArray.length - this.beatenCards.length))
+        if(this.winningCards.length > (this.cardsArray.length - this.beatenCards.length) || (this.winningCards.length > 6))
             this.victory();
+            console.log("win is >= to card length - beaten")
     }
     cardLose(card1, card2) {
         // Function for collecting and displaying lossing cards.
-        this.matchedCards.pop(card1);
-        this.matchedCards.pop(card2);
-        this.beatenCards.push(card1);
-        this.beatenCards.push(card2);
+        this.matchedCards.pop(card1, card2);
+        this.beatenCards.push(card1, card2);
         card1.classList.add('lose');
         card2.classList.add('lose');
         this.audioController.lose();
@@ -131,8 +128,9 @@ class mainGame {
         this.totalLives--;
         this.lives.innerText = this.totalLives;
         // Lose check, if total beaten cards is greater than winning cards & all possible cards have been selected OR lives reach 0 = Game Over.
-        if(((this.beatenCards.length >= this.winningCards.length) && (this.winningCards.length + this.beatenCards.length >= 10)) || this.totalLives == 0)
+        if(((this.beatenCards.length >= this.winningCards.length) && (this.beatenCards.length > 6) || this.totalLives == 0))
             this.gameOver();
+            console.log("beaten is greater than win and win + beaten is >= 10")
     }
     cardResult(card1, card2) {
         // Function takes first picked cards name and compares to the second cards key value pair beats.
@@ -281,6 +279,6 @@ colorPicker.on('color:change', function(color) {
     gm.style.color = color.hexString;
     clock.style.color = color.hexString;
     heart.style.color = color.hexString;
-
+    // Save seleted colour to local storage. 
     localStorage.setItem("colour", color.hexString);
 })};
